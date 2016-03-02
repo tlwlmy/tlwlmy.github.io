@@ -57,15 +57,16 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tlwlmy'blog">
-<meta property="og:url" content="http://www.tlwlmy.com/page/2/index.html">
+<meta name="description" content="用file_get_contents 以get方式获取内容用fopen打开url, 以get方式获取内容用file_get_contents函数,以post方式获取url用fsockopen函数打开url，以get方式获取完整的数据，包括header和body用fsockopen函数打开url，以POST方式获取完整的数据，包括header和body使用curl库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php 调用远程url的六种方法">
+<meta property="og:url" content="http://www.tlwlmy.com/2015/10/15/php/php_get_url/index.html">
 <meta property="og:site_name" content="tlwlmy'blog">
-<meta property="og:description">
+<meta property="og:description" content="用file_get_contents 以get方式获取内容用fopen打开url, 以get方式获取内容用file_get_contents函数,以post方式获取url用fsockopen函数打开url，以get方式获取完整的数据，包括header和body用fsockopen函数打开url，以POST方式获取完整的数据，包括header和body使用curl库">
+<meta property="og:updated_time" content="2016-03-02T09:53:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tlwlmy'blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="php 调用远程url的六种方法">
+<meta name="twitter:description" content="用file_get_contents 以get方式获取内容用fopen打开url, 以get方式获取内容用file_get_contents函数,以post方式获取url用fsockopen函数打开url，以get方式获取完整的数据，包括header和body用fsockopen函数打开url，以POST方式获取完整的数据，包括header和body使用curl库">
 
 
 
@@ -83,7 +84,7 @@
   };
 </script>
 
-  <title> tlwlmy'blog </title>
+  <title> php 调用远程url的六种方法 | tlwlmy'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -112,9 +113,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -221,15 +220,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
 
+  <div id="posts" class="posts-expand">
     
-
-    
-    
-
-    
-      
 
   
   
@@ -249,10 +242,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2015/10/15/essay/share_file/" itemprop="url">
-                  python2、pyhton3和nc命令共享本地文件
-                </a>
+                php 调用远程url的六种方法
               
             
           </h1>
@@ -275,8 +265,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/15/essay/share_file/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/essay/share_file/" itemprop="commentsCount"></span>
+                <a href="/2015/10/15/php/php_get_url/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/php/php_get_url/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -298,20 +288,14 @@
       
 
       
-        
-          
-            <h3 id="python2">python2</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python -m SimpleHTTPServer <span class="number">20000</span></span><br></pre></td></tr></table></figure>
-<h3 id="python3">python3</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m http.server <span class="number">20000</span></span><br></pre></td></tr></table></figure>
-<h3 id="nc命令">nc命令</h3><blockquote>
-<p>远程拷贝文件 从A服务器拷贝到B服务器上<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">A服务器：nc <span class="operator">-l</span> <span class="number">1234</span> &gt; text.txt</span><br><span class="line">B服务器：nc <span class="number">192.168</span>.<span class="number">10.11</span> <span class="number">1234</span> &lt; text.txt</span><br></pre></td></tr></table></figure></p>
-</blockquote>
+        <figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line">用file_get_contents 以<span class="preprocessor">get</span>方式获取内容</span><br><span class="line">用fopen打开url, 以<span class="preprocessor">get</span>方式获取内容</span><br><span class="line">用file_get_contents函数,以post方式获取url</span><br><span class="line">用fsockopen函数打开url，以<span class="preprocessor">get</span>方式获取完整的数据，包括header和<span class="keyword">body</span><br><span class="line"></span>用fsockopen函数打开url，以POST方式获取完整的数据，包括header和<span class="keyword">body</span><br><span class="line"></span>使用curl库</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
 
     <div>
+      
+        
       
     </div>
 
@@ -319,24 +303,36 @@
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/15/essay/share_file/" rel="next" title="python2、pyhton3和nc命令共享本地文件">
+                <i class="fa fa-chevron-left"></i> python2、pyhton3和nc命令共享本地文件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/24/python/django-database/" rel="prev" title="django数据库基本操作">
+                django数据库基本操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
 
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -344,6 +340,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/10/15/php/php_get_url/"
+           data-title="php 调用远程url的六种方法" data-url="http://www.tlwlmy.com/2015/10/15/php/php_get_url/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -363,8 +367,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpeg"
@@ -450,6 +463,23 @@
       </section>
 
       
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
 
     </div>
   </aside>
@@ -530,6 +560,167 @@
 
 
   
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
 
   
 

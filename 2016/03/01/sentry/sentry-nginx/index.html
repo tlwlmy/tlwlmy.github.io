@@ -57,16 +57,16 @@
 
 
 
-<meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041server &amp;#123;    listen 80;    server_name log.sentry.com;    rewrite ^(.*) https://log.sentry.com$1 permanent;&amp;#125;# configur">
+<meta name="description" content="setry服务使用的nginx配置，sentry默认使用端口是9000，通过nginx映射到这个端口，nginx配置使用https协议，将http访问的永久重定向到https">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sentry-nginx配置">
-<meta property="og:url" content="http://yoursite.com/2016/03/01/sentry-nginx/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041server &amp;#123;    listen 80;    server_name log.sentry.com;    rewrite ^(.*) https://log.sentry.com$1 permanent;&amp;#125;# configur">
-<meta property="og:updated_time" content="2016-03-02T02:02:33.000Z">
+<meta property="og:url" content="http://www.tlwlmy.com/2016/03/01/sentry/sentry-nginx/index.html">
+<meta property="og:site_name" content="tlwlmy'blog">
+<meta property="og:description" content="setry服务使用的nginx配置，sentry默认使用端口是9000，通过nginx映射到这个端口，nginx配置使用https协议，将http访问的永久重定向到https">
+<meta property="og:updated_time" content="2016-03-02T08:37:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sentry-nginx配置">
-<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041server &amp;#123;    listen 80;    server_name log.sentry.com;    rewrite ^(.*) https://log.sentry.com$1 permanent;&amp;#125;# configur">
+<meta name="twitter:description" content="setry服务使用的nginx配置，sentry默认使用端口是9000，通过nginx映射到这个端口，nginx配置使用https协议，将http访问的永久重定向到https">
 
 
 
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title> sentry-nginx配置 | Hexo </title>
+  <title> sentry-nginx配置 | tlwlmy'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -123,7 +123,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Hexo</span>
+      <span class="site-title">tlwlmy'blog</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -265,8 +265,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/01/sentry-nginx/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/01/sentry-nginx/" itemprop="commentsCount"></span>
+                <a href="/2016/03/01/sentry/sentry-nginx/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/01/sentry/sentry-nginx/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -288,7 +288,7 @@
       
 
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen <span class="number">80</span>;</span><br><span class="line">    server_name log.sentry.com;</span><br><span class="line">    rewrite ^(.*) https://log.sentry.com<span class="variable">$1</span> permanent;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># configuration of the server</span></span><br><span class="line">server &#123;</span><br><span class="line">    <span class="comment"># the port your site will be served on</span></span><br><span class="line">    listen <span class="number">443</span>;</span><br><span class="line">    <span class="comment"># the domain name it will serve for</span></span><br><span class="line">    server_name log.sentry.com; <span class="comment"># substitute your machine's IP address or FQDN</span></span><br><span class="line"></span><br><span class="line">    ssl on;</span><br><span class="line">    ssl_certificate /home/ubuntu/http_ssl/star_umlife_com/star_umlife_com.full.crt;</span><br><span class="line">    ssl_certificate_key /home/ubuntu/http_ssl/star_umlife_com/star_umlife_com.key;</span><br><span class="line"></span><br><span class="line">    gzip on;</span><br><span class="line"></span><br><span class="line">    rewrite_<span class="built_in">log</span>             on;</span><br><span class="line">    charset                 utf8;</span><br><span class="line"></span><br><span class="line">    access_<span class="built_in">log</span>  /home/ymserver/<span class="built_in">log</span>/nginx/log.sentry.com.access.log ;</span><br><span class="line">    <span class="comment">#access_log off;</span></span><br><span class="line">    error_<span class="built_in">log</span>  /home/ymserver/<span class="built_in">log</span>/nginx/log.sentry.com.error.log;</span><br><span class="line"></span><br><span class="line">    proxy_<span class="built_in">set</span>_header   Host                 <span class="variable">$http_host</span>;</span><br><span class="line">    proxy_<span class="built_in">set</span>_header   X-Real-IP            <span class="variable">$remote_addr</span>;</span><br><span class="line">    proxy_<span class="built_in">set</span>_header   X-Forwarded-For      <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    proxy_<span class="built_in">set</span>_header   X-Forwarded-Proto    <span class="variable">$scheme</span>;</span><br><span class="line">    proxy_redirect     off;</span><br><span class="line"></span><br><span class="line">    keepalive_timeout <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#auth_basic "Sentry Log!";</span></span><br><span class="line">    <span class="comment">#auth_basic_user_file /home/ymserver/auth/sentry-user;</span></span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass http://<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>setry服务使用的nginx配置，sentry默认使用端口是9000，通过nginx映射到这个端口，nginx配置使用https协议，将http访问的永久重定向到https<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen <span class="number">80</span>;</span><br><span class="line">    server_name log.sentry.com;</span><br><span class="line">    rewrite ^(.*) https://log.sentry.com<span class="variable">$1</span> permanent;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># configuration of the server</span></span><br><span class="line">server &#123;</span><br><span class="line">    <span class="comment"># the port your site will be served on</span></span><br><span class="line">    listen <span class="number">443</span>;</span><br><span class="line">    <span class="comment"># the domain name it will serve for</span></span><br><span class="line">    server_name log.sentry.com; <span class="comment"># substitute your machine's IP address or FQDN</span></span><br><span class="line"></span><br><span class="line">    ssl on;</span><br><span class="line">    ssl_certificate /home/ubuntu/http_ssl/star_umlife_com/star_umlife_com.full.crt;</span><br><span class="line">    ssl_certificate_key /home/ubuntu/http_ssl/star_umlife_com/star_umlife_com.key;</span><br><span class="line"></span><br><span class="line">    gzip on;</span><br><span class="line"></span><br><span class="line">    rewrite_<span class="built_in">log</span>             on;</span><br><span class="line">    charset                 utf8;</span><br><span class="line"></span><br><span class="line">    access_<span class="built_in">log</span>  /home/tlwlmy/<span class="built_in">log</span>/nginx/log.sentry.com.access.log ;</span><br><span class="line">    <span class="comment">#access_log off;</span></span><br><span class="line">    error_<span class="built_in">log</span>  /home/tlwlmy/<span class="built_in">log</span>/nginx/log.sentry.com.error.log;</span><br><span class="line"></span><br><span class="line">    proxy_<span class="built_in">set</span>_header   Host                 <span class="variable">$http_host</span>;</span><br><span class="line">    proxy_<span class="built_in">set</span>_header   X-Real-IP            <span class="variable">$remote_addr</span>;</span><br><span class="line">    proxy_<span class="built_in">set</span>_header   X-Forwarded-For      <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    proxy_<span class="built_in">set</span>_header   X-Forwarded-Proto    <span class="variable">$scheme</span>;</span><br><span class="line">    proxy_redirect     off;</span><br><span class="line"></span><br><span class="line">    keepalive_timeout <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#auth_basic "Sentry Log!";</span></span><br><span class="line">    <span class="comment">#auth_basic_user_file /home/tlwlmy/auth/sentry-user;</span></span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass http://<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -306,7 +306,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/01/sentry/" rel="next" title="sentry">
+              <a href="/2016/03/01/sentry/sentry/" rel="next" title="sentry">
                 <i class="fa fa-chevron-left"></i> sentry
               </a>
             
@@ -314,8 +314,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/01/sentry-conf/" rel="prev" title="sentry-conf">
-                sentry-conf <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/01/sentry/sentry-conf/" rel="prev" title="sentry.conf.py">
+                sentry.conf.py <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -342,8 +342,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/01/sentry-nginx/"
-           data-title="sentry-nginx配置" data-url="http://yoursite.com/2016/03/01/sentry-nginx/">
+      <div class="ds-thread" data-thread-key="2016/03/01/sentry/sentry-nginx/"
+           data-title="sentry-nginx配置" data-url="http://www.tlwlmy.com/2016/03/01/sentry/sentry-nginx/">
       </div>
     
   </div>
@@ -394,11 +394,18 @@
           </div>
           
           
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

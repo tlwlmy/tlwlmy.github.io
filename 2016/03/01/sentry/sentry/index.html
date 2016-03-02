@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="sentry,log,python,django," />
 
 
 
@@ -57,19 +57,16 @@
 
 
 
-<meta name="description" content="直接安装1$ sudo apt-get install sshpass
-使用源安装1234$ tar -zxvf download/sshpass_1.05.orig.tar.gz$ cd sshpass-1.05$ ./configure$ sudo make &amp;amp;&amp;amp; make install">
+<meta name="description" content="Sentry 是一款基于 Django 实现的日志管理工具，Disqus 团队对其代码贡献不少。虽然 Sentry 本身是 Python 实现的，但是其日志监控功能却不局限于 python，对诸如 Node.js, php, ruby, C#, java 等语言的项目都可以做到无缝集成，甚至可以用来对 iOS, Android 移动客户端以及 Web前端异常进行跟踪。主动上报的方式将错误信息等进行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu sshpass install">
-<meta property="og:url" content="http://yoursite.com/2016/01/21/sshpass/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="直接安装1$ sudo apt-get install sshpass
-使用源安装1234$ tar -zxvf download/sshpass_1.05.orig.tar.gz$ cd sshpass-1.05$ ./configure$ sudo make &amp;amp;&amp;amp; make install">
-<meta property="og:updated_time" content="2016-03-02T02:02:33.000Z">
+<meta property="og:title" content="sentry">
+<meta property="og:url" content="http://www.tlwlmy.com/2016/03/01/sentry/sentry/index.html">
+<meta property="og:site_name" content="tlwlmy'blog">
+<meta property="og:description" content="Sentry 是一款基于 Django 实现的日志管理工具，Disqus 团队对其代码贡献不少。虽然 Sentry 本身是 Python 实现的，但是其日志监控功能却不局限于 python，对诸如 Node.js, php, ruby, C#, java 等语言的项目都可以做到无缝集成，甚至可以用来对 iOS, Android 移动客户端以及 Web前端异常进行跟踪。主动上报的方式将错误信息等进行">
+<meta property="og:updated_time" content="2016-03-02T08:37:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu sshpass install">
-<meta name="twitter:description" content="直接安装1$ sudo apt-get install sshpass
-使用源安装1234$ tar -zxvf download/sshpass_1.05.orig.tar.gz$ cd sshpass-1.05$ ./configure$ sudo make &amp;amp;&amp;amp; make install">
+<meta name="twitter:title" content="sentry">
+<meta name="twitter:description" content="Sentry 是一款基于 Django 实现的日志管理工具，Disqus 团队对其代码贡献不少。虽然 Sentry 本身是 Python 实现的，但是其日志监控功能却不局限于 python，对诸如 Node.js, php, ruby, C#, java 等语言的项目都可以做到无缝集成，甚至可以用来对 iOS, Android 移动客户端以及 Web前端异常进行跟踪。主动上报的方式将错误信息等进行">
 
 
 
@@ -87,7 +84,7 @@
   };
 </script>
 
-  <title> Ubuntu sshpass install | Hexo </title>
+  <title> sentry | tlwlmy'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -126,7 +123,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Hexo</span>
+      <span class="site-title">tlwlmy'blog</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -245,7 +242,7 @@
             
             
               
-                Ubuntu sshpass install
+                sentry
               
             
           </h1>
@@ -257,8 +254,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-21T16:57:21+08:00" content="2016-01-21">
-              2016-01-21
+            <time itemprop="dateCreated" datetime="2016-03-01T16:46:44+08:00" content="2016-03-01">
+              2016-03-01
             </time>
           </span>
 
@@ -268,8 +265,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/21/sshpass/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/21/sshpass/" itemprop="commentsCount"></span>
+                <a href="/2016/03/01/sentry/sentry/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/01/sentry/sentry/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -291,8 +288,64 @@
       
 
       
-        <h3 id="直接安装">直接安装</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get <span class="operator"><span class="keyword">install</span> sshpass</span></span><br></pre></td></tr></table></figure>
-<h3 id="使用源安装">使用<a href="http://packages.ubuntu.com/precise/utils/sshpass" target="_blank" rel="external">源安装</a></h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxvf download/sshpass_1.05.orig.tar.gz</span><br><span class="line">$ cd sshpass-1.05</span><br><span class="line">$ ./configure</span><br><span class="line">$ sudo make &amp;&amp; make <span class="operator"><span class="keyword">install</span></span></span><br></pre></td></tr></table></figure>
+        <p>Sentry 是一款基于 Django 实现的日志管理工具，Disqus 团队对其代码贡献不少。虽然 Sentry 本身是 Python 实现的，但是其日志监控功能却不局限于 python，对诸如 Node.js, php, ruby, C#, java 等语言的项目都可以做到无缝集成，甚至可以用来对 iOS, Android 移动客户端以及 Web前端异常进行跟踪。主动上报的方式将错误信息等进行收集汇总和提醒，以帮助我们及时发现项目中的问题。<br><a id="more"></a></p>
+<h3 id="1-安装环境">1.安装环境</h3><ul>
+<li>python2.7</li>
+<li>python-setuptools, python-pip, python-dev, libxslt1-dev, libxml2-dev, libz-dev, libffi-dev, libssl-dev, libpq-dev, libyaml-dev</li>
+<li>redis &gt;= 2.8.9</li>
+<li>nginx</li>
+<li>mysql</li>
+</ul>
+<h3 id="2-python环境配置">2.python环境配置</h3><ul>
+<li><p>虚拟环境安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install virtualenv</span><br><span class="line">pip install virtualenvwrapper</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>虚拟环境配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> WORKON_HOME=~/.virtualenvs</span><br><span class="line">mkdir <span class="variable">$WORKON_HOME</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"export WORKON_HOME=<span class="variable">$WORKON_HOME</span>"</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"source /usr/local/bin/virtualenvwrapper.sh"</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"export PIP_VIRTUALENV_BASE=<span class="variable">$WORKON_HOME</span>"</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>基本命令<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkvirtualenv <span class="built_in">test</span></span><br><span class="line">workon <span class="built_in">test</span></span><br><span class="line">deactivate</span><br><span class="line">rmvirtualenv <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3-sentry安装">3.sentry安装</h3><ul>
+<li><p>新建虚拟环境</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkvirtualenv sentry</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install sentry</span><br><span class="line">pip install MYSQL-python</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="4-sentry配置">4.sentry配置</h3><ul>
+<li><p>初始化</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sentry init /etc/sentry</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改/etc/sentry/sentry.conf.py数据库配置</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"> DATABASES = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>,</span><br><span class="line">        <span class="string">'NAME'</span>: <span class="string">'sentry'</span>,</span><br><span class="line">        <span class="string">'USER'</span>: <span class="string">'sentry'</span>,</span><br><span class="line">        <span class="string">'PASSWORD'</span>: <span class="string">''</span>,</span><br><span class="line">        <span class="string">'HOST'</span>: <span class="string">''</span>,</span><br><span class="line">        <span class="string">'PORT'</span>: <span class="string">'3306'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sentry启动,upgrade过程可以创建超级用户</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sentry --config=/etc/sentry/sentry.conf.py upgrade</span><br><span class="line">sentry --config=/etc/sentry/sentry.conf.py start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sentry三个主要模块：web，worker，cron，用supervisor启动的</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[program:sentry-web]</span><br><span class="line">directory=/home/ymserver</span><br><span class="line"><span class="built_in">command</span>=/home/ymserver/virtualenv/sentry/bin/sentry --config=/etc/sentry/sentry.conf.py start</span><br><span class="line">autostart=<span class="literal">true</span></span><br><span class="line">autorestart=<span class="literal">true</span></span><br><span class="line">redirect_stderr=<span class="literal">true</span></span><br><span class="line">stdout_logfile=/data/<span class="built_in">log</span>/supervisor/sentry-web.log</span><br><span class="line"></span><br><span class="line">[program:sentry-worker]</span><br><span class="line">directory=/home/ymserver</span><br><span class="line"><span class="built_in">command</span>=/home/ymserver/virtualenv/sentry/bin/sentry --config=/etc/sentry/sentry.conf.py celery worker</span><br><span class="line">autostart=<span class="literal">true</span></span><br><span class="line">autorestart=<span class="literal">true</span></span><br><span class="line">redirect_stderr=<span class="literal">true</span></span><br><span class="line">stdout_logfile=/data/<span class="built_in">log</span>/supervisor/sentry-worker.log</span><br><span class="line">user=ymserver</span><br><span class="line"></span><br><span class="line">[program:sentry-cron]</span><br><span class="line">directory=/home/ymserver</span><br><span class="line"><span class="built_in">command</span>=/home/ymserver/virtualenv/sentry/bin/sentry --config=/etc/sentry/sentry.conf.py celery beat</span><br><span class="line">autostart=<span class="literal">true</span></span><br><span class="line">autorestart=<span class="literal">true</span></span><br><span class="line">redirect_stderr=<span class="literal">true</span></span><br><span class="line">stdout_logfile=/data/<span class="built_in">log</span>/supervisor/sentry-cron.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="http://www.tlwlmy.com/2016/03/01/sentry-nginx/">nginx配置</a></p>
+</li>
+<li><a href="http://www.tlwlmy.com/2016/03/01/sentry-conf/">sentry.conf.py配置</a></li>
+</ul>
+<h3 id="5-sentry应用python">5.sentry应用python</h3><ul>
+<li><p>python安装raven库就可以直接调用了</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install raven --upgrade</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>例子</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> raven <span class="keyword">import</span> Client</span><br><span class="line">client = Client(<span class="string">'https://&lt;key&gt;:&lt;secret&gt;@app.getsentry.com/&lt;project&gt;'</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="number">1</span> / <span class="number">0</span></span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">    client.captureException()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="6-参考">6.参考</h3><ul>
+<li><a href="https://docs.getsentry.com/on-premise/server/installation/" target="_blank" rel="external">https://docs.getsentry.com/on-premise/server/installation/</a></li>
+<li><a href="https://docs.getsentry.com/hosted/clients/python/" target="_blank" rel="external">https://docs.getsentry.com/hosted/clients/python/</a></li>
+<li><a href="http://blog.gaoyuan.xyz/2013/12/18/deploy-sentry-in-product/" target="_blank" rel="external">http://blog.gaoyuan.xyz/2013/12/18/deploy-sentry-in-product/</a></li>
+</ul>
 
       
     </div>
@@ -305,21 +358,27 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/sentry-log-python-django/" rel="tag">#sentry,log,python,django</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/08/Cmd-Markdown编辑阅读器/" rel="next" title="欢迎使用 Cmd Markdown 编辑阅读器">
-                <i class="fa fa-chevron-left"></i> 欢迎使用 Cmd Markdown 编辑阅读器
+              <a href="/2016/01/21/essay/sshpass/" rel="next" title="Ubuntu sshpass install">
+                <i class="fa fa-chevron-left"></i> Ubuntu sshpass install
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/01/sentry/" rel="prev" title="sentry">
-                sentry <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/01/sentry/sentry-nginx/" rel="prev" title="sentry-nginx配置">
+                sentry-nginx配置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -346,8 +405,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/21/sshpass/"
-           data-title="Ubuntu sshpass install" data-url="http://yoursite.com/2016/01/21/sshpass/">
+      <div class="ds-thread" data-thread-key="2016/03/01/sentry/sentry/"
+           data-title="sentry" data-url="http://www.tlwlmy.com/2016/03/01/sentry/sentry/">
       </div>
     
   </div>
@@ -398,11 +457,18 @@
           </div>
           
           
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -469,7 +535,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#直接安装"><span class="nav-number">1.</span> <span class="nav-text">直接安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用源安装"><span class="nav-number">2.</span> <span class="nav-text">使用源安装</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装环境"><span class="nav-number">1.</span> <span class="nav-text">1.安装环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-python环境配置"><span class="nav-number">2.</span> <span class="nav-text">2.python环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-sentry安装"><span class="nav-number">3.</span> <span class="nav-text">3.sentry安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-sentry配置"><span class="nav-number">4.</span> <span class="nav-text">4.sentry配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-sentry应用python"><span class="nav-number">5.</span> <span class="nav-text">5.sentry应用python</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-参考"><span class="nav-number">6.</span> <span class="nav-text">6.参考</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
