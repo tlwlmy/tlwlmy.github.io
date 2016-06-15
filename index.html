@@ -250,6 +250,109 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/15/flask/flask_url_for/" itemprop="url">
+                  flask的url_for使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T16:59:42+08:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/15/flask/flask_url_for/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/15/flask/flask_url_for/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="blueprint和url_for">blueprint和url_for</h3><pre><code>- 组织module的一个很好的方式, 通常我们会为不同的 Blueprint 设置不同的url prefix.
+- 在设置了url prefix后, <span class="tag">html</span> 模板中与这个blueprint相关的link 字符串, 都需要加上url prefix, 否则路由地址就不对了.
+- 当然这样的写法其实很是很糟糕的, hard <span class="tag">code</span> 的url prefix一多, 哪一天要调整这个url prefix就麻烦了
+- 最好的作法, 当然不是到处hard <span class="tag">code</span> 链接地址了, 推荐使用<span class="function"><span class="title">url_for</span><span class="params">()</span></span>函数.  
+- 但加了url prefix之后, 使用 <span class="function"><span class="title">url_for</span><span class="params">()</span></span> 函数时, 需要为view函数加一个命名空间, 到底这个命名空间取什么,  结论是 Blueprint的名称, 不是Blueprint对象的名称, 也不是python 模块的名称
+</code></pre><h3 id="url_for使用例子">url_for使用例子</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line">#views.pyapp = Blueprint('user', __name__, url_prefix='/username')  #Blueprint的名称是 user@app.route("/user_info/&lt;username&gt;/&lt;time_id&gt;")def user_info(username, time_id):    return 'a,b,c,d,e'    def redirect_sample():    return redirect(url_for('user.user_info', user_name='tlwlmy', time_id='201406'))    模板上的写法也是一样,    &lt;a href="&#123;&#123; url_for('muser.user_info', report_name='tlwlmy', time_id='201406')&#125;&#125;"&gt;    get_user_info(201406)  &lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="参考文档">参考文档</h3><pre><code>-<span class="ruby"> <span class="symbol">http:</span>/<span class="regexp">/www.cnblogs.com/harrychinese</span><span class="regexp">/p/flask</span>_tips.html
+</span>-<span class="ruby"> <span class="symbol">http:</span>/<span class="regexp">/docs.jinkan.org/docs</span><span class="regexp">/flask/quickstart</span>.html</span>
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/02/desptop_deployment/desptop_deployment_basic_conf/" itemprop="url">
                   ubuntu14.04系统基本配置
                 </a>
@@ -1143,104 +1246,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/01/sentry/sentry/" itemprop="url">
-                  sentry
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-01T16:46:44+08:00" content="2016-03-01">
-              2016-03-01
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/01/sentry/sentry/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/01/sentry/sentry/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Sentry 是一款基于 Django 实现的日志管理工具，Disqus 团队对其代码贡献不少。虽然 Sentry 本身是 Python 实现的，但是其日志监控功能却不局限于 python，对诸如 Node.js, php, ruby, C#, java 等语言的项目都可以做到无缝集成，甚至可以用来对 iOS, Android 移动客户端以及 Web前端异常进行跟踪。主动上报的方式将错误信息等进行收集汇总和提醒，以帮助我们及时发现项目中的问题。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/01/sentry/sentry/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1287,7 +1292,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
