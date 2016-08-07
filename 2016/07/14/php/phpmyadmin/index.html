@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="mysql,服务器," />
 
 
 
@@ -57,25 +57,22 @@
 
 
 
-<meta name="description" content="python2python -m SimpleHTTPServer 20000
-python3python3 -m http.server 20000
-nc命令
-远程拷贝文件 从A服务器拷贝到B服务器上A服务器：nc -l 1234 &amp;gt; text.txtB服务器：nc 192.168.10.11 1234 &amp;lt; text.txt">
+<meta name="description" content="查看phpmyadmin安装目录$ whereis phpmyadminphpmyadmin: /etc/phpmyadmin /usr/share/phpmyadmin
+方法一
+修改/usr/share/phpmyadmin/libraries/config.default.php/**  * allow login to any user entered server in cookie ba">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python2、pyhton3和nc命令共享本地文件">
-<meta property="og:url" content="http://www.tlwlmy.com/2015/10/15/essay/share_file/index.html">
+<meta property="og:title" content="phpmyadmin链接多个数据库">
+<meta property="og:url" content="http://www.tlwlmy.com/2016/07/14/php/phpmyadmin/index.html">
 <meta property="og:site_name" content="tlwlmy'blog">
-<meta property="og:description" content="python2python -m SimpleHTTPServer 20000
-python3python3 -m http.server 20000
-nc命令
-远程拷贝文件 从A服务器拷贝到B服务器上A服务器：nc -l 1234 &amp;gt; text.txtB服务器：nc 192.168.10.11 1234 &amp;lt; text.txt">
-<meta property="og:updated_time" content="2016-03-02T09:54:03.000Z">
+<meta property="og:description" content="查看phpmyadmin安装目录$ whereis phpmyadminphpmyadmin: /etc/phpmyadmin /usr/share/phpmyadmin
+方法一
+修改/usr/share/phpmyadmin/libraries/config.default.php/**  * allow login to any user entered server in cookie ba">
+<meta property="og:updated_time" content="2016-07-14T08:35:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python2、pyhton3和nc命令共享本地文件">
-<meta name="twitter:description" content="python2python -m SimpleHTTPServer 20000
-python3python3 -m http.server 20000
-nc命令
-远程拷贝文件 从A服务器拷贝到B服务器上A服务器：nc -l 1234 &amp;gt; text.txtB服务器：nc 192.168.10.11 1234 &amp;lt; text.txt">
+<meta name="twitter:title" content="phpmyadmin链接多个数据库">
+<meta name="twitter:description" content="查看phpmyadmin安装目录$ whereis phpmyadminphpmyadmin: /etc/phpmyadmin /usr/share/phpmyadmin
+方法一
+修改/usr/share/phpmyadmin/libraries/config.default.php/**  * allow login to any user entered server in cookie ba">
 
 
 
@@ -93,7 +90,7 @@ nc命令
   };
 </script>
 
-  <title> python2、pyhton3和nc命令共享本地文件 | tlwlmy'blog </title>
+  <title> phpmyadmin链接多个数据库 | tlwlmy'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -251,7 +248,7 @@ nc命令
             
             
               
-                python2、pyhton3和nc命令共享本地文件
+                phpmyadmin链接多个数据库
               
             
           </h1>
@@ -263,8 +260,8 @@ nc命令
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-15T15:18:10+08:00" content="2015-10-15">
-              2015-10-15
+            <time itemprop="dateCreated" datetime="2016-07-14T16:31:46+08:00" content="2016-07-14">
+              2016-07-14
             </time>
           </span>
 
@@ -274,8 +271,8 @@ nc命令
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/15/essay/share_file/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/essay/share_file/" itemprop="commentsCount"></span>
+                <a href="/2016/07/14/php/phpmyadmin/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/14/php/phpmyadmin/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -297,11 +294,34 @@ nc命令
       
 
       
-        <h3 id="python2">python2</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python -m SimpleHTTPServer <span class="number">20000</span></span><br></pre></td></tr></table></figure>
-<h3 id="python3">python3</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m http.server <span class="number">20000</span></span><br></pre></td></tr></table></figure>
-<h3 id="nc命令">nc命令</h3><blockquote>
-<p>远程拷贝文件 从A服务器拷贝到B服务器上<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">A服务器：nc <span class="operator">-l</span> <span class="number">1234</span> &gt; text.txt</span><br><span class="line">B服务器：nc <span class="number">192.168</span>.<span class="number">10.11</span> <span class="number">1234</span> &lt; text.txt</span><br></pre></td></tr></table></figure></p>
-</blockquote>
+        <h3 id="查看phpmyadmin安装目录">查看phpmyadmin安装目录</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ whereis phpmyadmin</span><br><span class="line">phpmyadmin: /etc/phpmyadmin /usr/share/phpmyadmin</span><br></pre></td></tr></table></figure>
+<h3 id="方法一">方法一</h3><ul>
+<li>修改/usr/share/phpmyadmin/libraries/config.default.php<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** </span><br><span class="line"> * allow login to any user entered server in cookie based authentication </span><br><span class="line"> * </span><br><span class="line"> * <span class="doctag">@global</span> boolean $cfg['AllowArbitraryServer'] </span><br><span class="line"> */</span>  </span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'AllowArbitraryServer'</span>] = <span class="keyword">true</span>; <span class="comment">//默认是false,改成true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="方法二">方法二</h3><ul>
+<li><p>复制/usr/share/phpmyadmin/config.sample.inc.php，命名为config.inc.php</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/share/phpmyadmin</span><br><span class="line">$ sudo cp config.sample.inc.php config.inc.php</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改config.inc.php文件，在第一个Servers配置下加多一个数据库配置</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$i</span>++;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'verbose'</span>] = <span class="string">'tlwlmy'</span>;    <span class="comment">// 链接名字</span></span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'host'</span>] = <span class="string">'192.168.0.1'</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'port'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'socket'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'connect_type'</span>] = <span class="string">'tcp'</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'extension'</span>] = <span class="string">'mysqli'</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'auth_type'</span>] = <span class="string">'cookie'</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'AllowNoPassword'</span>] = <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="方法三">方法三</h3><ul>
+<li>修改/etc/phpmyadmin/config.inc.php，在第一个Servers配置下加多一个数据库配置<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$i</span>++;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'verbose'</span>] = <span class="string">'tlwlmy'</span>;    <span class="comment">// 链接名字</span></span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'host'</span>] = <span class="string">'192.168.0.1'</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'port'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'socket'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'connect_type'</span>] = <span class="string">'tcp'</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'extension'</span>] = <span class="string">'mysqli'</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'auth_type'</span>] = <span class="string">'cookie'</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'AllowNoPassword'</span>] = <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="总结">总结</h3><ul>
+<li>使用第一种方法，需要自己填写host，切换数据库比较麻烦</li>
+<li>第二种方法是网上大多数查到的，但是修改配置很多次都不成功</li>
+<li>第三种方法，成功配置了，其实效果是和第二种一样的</li>
+<li>第二种方法不成功可能是因为读取的配置文件可能是使用/etc/phpmyadmin/config.inc.php，而不是/usr/share/phpmyadmin/config.inc.php下的</li>
+</ul>
+<h3 id="参考">参考</h3><ul>
+<li><a href="http://blog.51yip.com/mysql/1250.html（方法一和方法二）" target="_blank" rel="external">http://blog.51yip.com/mysql/1250.html（方法一和方法二）</a></li>
+<li><a href="http://www.onlinehowto.net/config-multiple-servers-in-phpmyadmin/1405（方法二）" target="_blank" rel="external">http://www.onlinehowto.net/config-multiple-servers-in-phpmyadmin/1405（方法二）</a></li>
+<li><a href="http://www.linuxfunda.com/2013/10/06/how-to-manage-multiple-mysql-server-using-one-phpmyadmin/（方法三）" target="_blank" rel="external">http://www.linuxfunda.com/2013/10/06/how-to-manage-multiple-mysql-server-using-one-phpmyadmin/（方法三）</a></li>
+</ul>
 
       
     </div>
@@ -314,21 +334,27 @@ nc命令
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/mysql-服务器/" rel="tag">#mysql,服务器</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/15/php/php_get_url/" rel="next" title="php 调用远程url的六种方法">
-                <i class="fa fa-chevron-left"></i> php 调用远程url的六种方法
+              <a href="/2016/06/15/flask/flask_url_for/" rel="next" title="flask的url_for使用">
+                <i class="fa fa-chevron-left"></i> flask的url_for使用
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/24/python/django-database/" rel="prev" title="django数据库基本操作">
-                django数据库基本操作 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/08/computer/" rel="prev" title="台式机组装">
+                台式机组装 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -355,8 +381,8 @@ nc命令
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/10/15/essay/share_file/"
-           data-title="python2、pyhton3和nc命令共享本地文件" data-url="http://www.tlwlmy.com/2015/10/15/essay/share_file/">
+      <div class="ds-thread" data-thread-key="2016/07/14/php/phpmyadmin/"
+           data-title="phpmyadmin链接多个数据库" data-url="http://www.tlwlmy.com/2016/07/14/php/phpmyadmin/">
       </div>
     
   </div>
@@ -485,7 +511,7 @@ nc命令
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#python2"><span class="nav-number">1.</span> <span class="nav-text">python2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python3"><span class="nav-number">2.</span> <span class="nav-text">python3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nc命令"><span class="nav-number">3.</span> <span class="nav-text">nc命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看phpmyadmin安装目录"><span class="nav-number">1.</span> <span class="nav-text">查看phpmyadmin安装目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一"><span class="nav-number">2.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二"><span class="nav-number">3.</span> <span class="nav-text">方法二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法三"><span class="nav-number">4.</span> <span class="nav-text">方法三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
