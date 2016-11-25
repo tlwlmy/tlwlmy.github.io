@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="redis多实例," />
 
 
 
@@ -57,16 +57,16 @@
 
 
 
-<meta name="description">
+<meta name="description" content="一、安装最新的redis版本apt-get remove redis-server    # 删除旧版apt-get autoremovesudo apt-get install -y python-software-propertiessudo apt-get install software-properties-commonsudo add-apt-repository -y ppa:rwk">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tlwlmy'blog">
-<meta property="og:url" content="http://www.tlwlmy.com/2016/03/24/desptop_deployment/desptop_deployment_installed/index.html">
+<meta property="og:title" content="ubuntu14.04系统redis多实例运行">
+<meta property="og:url" content="http://www.tlwlmy.com/2016/11/25/redis-multi-post/index.html">
 <meta property="og:site_name" content="tlwlmy'blog">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-03-24T01:37:38.000Z">
+<meta property="og:description" content="一、安装最新的redis版本apt-get remove redis-server    # 删除旧版apt-get autoremovesudo apt-get install -y python-software-propertiessudo apt-get install software-properties-commonsudo add-apt-repository -y ppa:rwk">
+<meta property="og:updated_time" content="2016-11-25T09:29:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tlwlmy'blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="ubuntu14.04系统redis多实例运行">
+<meta name="twitter:description" content="一、安装最新的redis版本apt-get remove redis-server    # 删除旧版apt-get autoremovesudo apt-get install -y python-software-propertiessudo apt-get install software-properties-commonsudo add-apt-repository -y ppa:rwk">
 
 
 
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title>  | tlwlmy'blog </title>
+  <title> ubuntu14.04系统redis多实例运行 | tlwlmy'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -242,7 +242,7 @@
             
             
               
-                
+                ubuntu14.04系统redis多实例运行
               
             
           </h1>
@@ -254,8 +254,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-24T09:37:38+08:00" content="2016-03-24">
-              2016-03-24
+            <time itemprop="dateCreated" datetime="2016-11-25T17:03:23+08:00" content="2016-11-25">
+              2016-11-25
             </time>
           </span>
 
@@ -265,8 +265,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/24/desptop_deployment/desptop_deployment_installed/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/24/desptop_deployment/desptop_deployment_installed/" itemprop="commentsCount"></span>
+                <a href="/2016/11/25/redis-multi-post/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/25/redis-multi-post/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -288,7 +288,41 @@
       
 
       
-        
+        <h3 id="一、安装最新的redis版本">一、安装最新的redis版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get remove redis-server    <span class="comment"># 删除旧版</span></span><br><span class="line">apt-get autoremove</span><br><span class="line">sudo apt-get install -y python-software-properties</span><br><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository -y ppa:rwky/redis</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y redis-server</span><br></pre></td></tr></table></figure>
+<h3 id="二、redis配置文件">二、redis配置文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/redis-server-------------redis的可执行程序</span><br><span class="line">/etc/redis/redis.conf----------------redis的配置文件</span><br><span class="line">/usr/bin/redis-server---------------redis的自启动文件</span><br></pre></td></tr></table></figure>
+<h3 id="三、redis默认配置的端口号是6379，添加多配置一个6380端口">三、redis默认配置的端口号是6379，添加多配置一个6380端口</h3><ul>
+<li><p>复制redis配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp /etc/redis/redis.conf /etc/redis/redis6380.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改redis6380.conf文件，vim /etc/redis/redis6380.conf</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pidfile /var/run/redis/redis-server6380.pid</span><br><span class="line">port <span class="number">6380</span></span><br><span class="line">logfile /var/<span class="built_in">log</span>/redis/redis-server6380.log</span><br><span class="line">dbfilename dump6380.rdb</span><br><span class="line"><span class="built_in">bind</span> <span class="number">0.0</span>.<span class="number">0.0</span>    <span class="comment"># 允许其他服务器访问</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="四、添加redis6380执行文件">四、添加redis6380执行文件</h3><ul>
+<li><p>复制redis执行文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo cp /etc/init.d/redis-server /etc/init.d/redis-server6380</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改redis-server6380配置文件对应位置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">DAEMON=/usr/bin/redis-server</span><br><span class="line">DAEMON_ARGS=/etc/redis/redis_6380.conf</span><br><span class="line">NAME=redis-server</span><br><span class="line">DESC=redis-server6380</span><br><span class="line"></span><br><span class="line">RUNDIR=/var/run/redis</span><br><span class="line">PIDFILE=<span class="variable">$RUNDIR</span>/redis-server6380.pid</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="五、启动redis6380">五、启动redis6380</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo service redis-server6380 (start|stop|restart)</span><br></pre></td></tr></table></figure>
+<h3 id="六、添加redis6380开机启动设置">六、添加redis6380开机启动设置</h3><ul>
+<li><p>开机启动设置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo update-rc.d redis-server6380 defaults <span class="number">20</span>    <span class="comment"># 开机启动</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>取消开启启动设置</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sudo <span class="operator"><span class="keyword">update</span>-rc.<span class="keyword">d</span> -<span class="keyword">f</span> redis-server6380 remove</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试开机启动，redis6380是否运行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo reboot    <span class="comment"># 重启</span></span><br><span class="line">ps axu | grep redis    <span class="comment"># 查询redis进程</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="参考">参考</h3><ul>
+<li><a href="http://www.cnblogs.com/limx/p/5690604.html" target="_blank" rel="external">http://www.cnblogs.com/limx/p/5690604.html</a></li>
+<li><a href="https://makandracards.com/makandra/7965-run-multiple-redis-servers-on-ubuntu" target="_blank" rel="external">https://makandracards.com/makandra/7965-run-multiple-redis-servers-on-ubuntu</a></li>
+</ul>
+
       
     </div>
 
@@ -300,22 +334,24 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/redis多实例/" rel="tag">#redis多实例</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/02/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/11/25/redis/redis-multi-post/" rel="next" title="redis_multi_post">
+                <i class="fa fa-chevron-left"></i> redis_multi_post
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/24/desptop_deployment/desptop_deployment_over/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -341,8 +377,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/24/desptop_deployment/desptop_deployment_installed/"
-           data-title="" data-url="http://www.tlwlmy.com/2016/03/24/desptop_deployment/desptop_deployment_installed/">
+      <div class="ds-thread" data-thread-key="2016/11/25/redis-multi-post/"
+           data-title="ubuntu14.04系统redis多实例运行" data-url="http://www.tlwlmy.com/2016/11/25/redis-multi-post/">
       </div>
     
   </div>
@@ -471,7 +507,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、安装最新的redis版本"><span class="nav-number">1.</span> <span class="nav-text">一、安装最新的redis版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、redis配置文件"><span class="nav-number">2.</span> <span class="nav-text">二、redis配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、redis默认配置的端口号是6379，添加多配置一个6380端口"><span class="nav-number">3.</span> <span class="nav-text">三、redis默认配置的端口号是6379，添加多配置一个6380端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、添加redis6380执行文件"><span class="nav-number">4.</span> <span class="nav-text">四、添加redis6380执行文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、启动redis6380"><span class="nav-number">5.</span> <span class="nav-text">五、启动redis6380</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、添加redis6380开机启动设置"><span class="nav-number">6.</span> <span class="nav-text">六、添加redis6380开机启动设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -250,6 +250,230 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/25/redis-multi-post/" itemprop="url">
+                  ubuntu14.04系统redis多实例运行
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-25T17:03:23+08:00" content="2016-11-25">
+              2016-11-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/25/redis-multi-post/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/25/redis-multi-post/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="一、安装最新的redis版本">一、安装最新的redis版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get remove redis-server    <span class="comment"># 删除旧版</span></span><br><span class="line">apt-get autoremove</span><br><span class="line">sudo apt-get install -y python-software-properties</span><br><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository -y ppa:rwky/redis</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y redis-server</span><br></pre></td></tr></table></figure>
+<h3 id="二、redis配置文件">二、redis配置文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/redis-server-------------redis的可执行程序</span><br><span class="line">/etc/redis/redis.conf----------------redis的配置文件</span><br><span class="line">/usr/bin/redis-server---------------redis的自启动文件</span><br></pre></td></tr></table></figure>
+<h3 id="三、redis默认配置的端口号是6379，添加多配置一个6380端口">三、redis默认配置的端口号是6379，添加多配置一个6380端口</h3><ul>
+<li><p>复制redis配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp /etc/redis/redis.conf /etc/redis/redis6380.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改redis6380.conf文件，vim /etc/redis/redis6380.conf</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pidfile /var/run/redis/redis-server6380.pid</span><br><span class="line">port <span class="number">6380</span></span><br><span class="line">logfile /var/<span class="built_in">log</span>/redis/redis-server6380.log</span><br><span class="line">dbfilename dump6380.rdb</span><br><span class="line"><span class="built_in">bind</span> <span class="number">0.0</span>.<span class="number">0.0</span>    <span class="comment"># 允许其他服务器访问</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="四、添加redis6380执行文件">四、添加redis6380执行文件</h3><ul>
+<li><p>复制redis执行文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo cp /etc/init.d/redis-server /etc/init.d/redis-server6380</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改redis-server6380配置文件对应位置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">DAEMON=/usr/bin/redis-server</span><br><span class="line">DAEMON_ARGS=/etc/redis/redis_6380.conf</span><br><span class="line">NAME=redis-server</span><br><span class="line">DESC=redis-server6380</span><br><span class="line"></span><br><span class="line">RUNDIR=/var/run/redis</span><br><span class="line">PIDFILE=<span class="variable">$RUNDIR</span>/redis-server6380.pid</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="五、启动redis6380">五、启动redis6380</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo service redis-server6380 (start|stop|restart)</span><br></pre></td></tr></table></figure>
+<h3 id="六、添加redis6380开机启动设置">六、添加redis6380开机启动设置</h3><ul>
+<li><p>开机启动设置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo update-rc.d redis-server6380 defaults <span class="number">20</span>    <span class="comment"># 开机启动</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>取消开启启动设置</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sudo <span class="operator"><span class="keyword">update</span>-rc.<span class="keyword">d</span> -<span class="keyword">f</span> redis-server6380 remove</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试开机启动，redis6380是否运行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo reboot    <span class="comment"># 重启</span></span><br><span class="line">ps axu | grep redis    <span class="comment"># 查询redis进程</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="参考">参考</h3><ul>
+<li><a href="http://www.cnblogs.com/limx/p/5690604.html" target="_blank" rel="external">http://www.cnblogs.com/limx/p/5690604.html</a></li>
+<li><a href="https://makandracards.com/makandra/7965-run-multiple-redis-servers-on-ubuntu" target="_blank" rel="external">https://makandracards.com/makandra/7965-run-multiple-redis-servers-on-ubuntu</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/25/redis/redis-multi-post/" itemprop="url">
+                  redis_multi_post
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-25T17:03:23+08:00" content="2016-11-25">
+              2016-11-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/25/redis/redis-multi-post/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/25/redis/redis-multi-post/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/08/computer/" itemprop="url">
                   台式机组装
                 </a>
@@ -1199,211 +1423,12 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/24/desptop_deployment/desptop_deployment_installed/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-24T09:37:38+08:00" content="2016-03-24">
-              2016-03-24
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/24/desptop_deployment/desptop_deployment_installed/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/24/desptop_deployment/desptop_deployment_installed/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/02/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-02T17:53:50+08:00" content="2016-03-02">
-              2016-03-02
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/02/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/02/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1444,7 +1469,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1461,7 +1486,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
