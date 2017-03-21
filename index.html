@@ -880,15 +880,33 @@
       
         
           
-            <h1 id="1-浏览器">1.浏览器</h1><p>使用ubuntu默认库安装Chrome和Pepper Flash Player<br><figure class="highlight smali"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install chromium-browser</span><br><span class="line">sudo<span class="instruction"> add-apt-repository </span>ppa:skunk/pepper-flash</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install pepflashplugin-installer</span><br><span class="line">sudo update-pepperflashplugin-nonfree --install</span><br></pre></td></tr></table></figure></p>
-<h1 id="2-输入法">2.输入法</h1><p>搜狗输入法，选择对应的操作系统位数下载，点击deb包安装<br><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">http:</span><span class="comment">//pinyin.sogou.com/linux/?r=pinyin</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="3-终端">3.终端</h1><p><a href="http://blog.jobbole.com/59165/" target="_blank" rel="external">linux终端选择参考</a><br>ubuntu下是使用Terminator和Guake，mac下使用iTerm2，安装后自行配置终端颜色，字体，透明度，快捷键<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">apt-get <span class="operator"><span class="keyword">install</span> terminator</span><br><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> guake</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="4-Consolas字体添加">4.Consolas字体添加</h1><p>添加consolas字体，修改终端Terminator和Guake字体，选择consolas字体，退出重新打开终端即可以生效<br><figure class="highlight perl"><table><tr><td class="code"><pre><span class="line">wget http:<span class="regexp">//pan</span>.baidu.com/<span class="regexp">s/1pLlCY5l</span><br><span class="line">mkdir /usr/share</span><span class="regexp">/fonts/winfonts</span></span><br><span class="line">sudo cp consolas /usr/share/fonts/winfonts/</span><br><span class="line">cd /usr/share/fonts/winfonts/</span><br><span class="line">sudo mkfontscale    <span class="comment"># 创建字体的fonts.scale文件，它用来控制字体旋转缩放</span></span><br><span class="line">sudo mkfontdir      <span class="comment"># 创建字体的fonts.dir文件，它用来控制字体粗斜体产生</span></span><br><span class="line">sudo fc-cache -fv   <span class="comment"># 建立字体缓存信息，也就是让系统认识认识新字体</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="5-Awesome桌面环境安装">5.Awesome桌面环境安装</h1><p>awesome是一款平铺式窗口管理器，将所有打开的窗口设置成各种平铺方式，让它们之间无间隙的平铺于桌面上。awesome可以全部使用键盘来操作窗口。安装完后，注销用户，然后在登录时选择awesome即可。</p>
+            <h1 id="1-浏览器">1.浏览器</h1><ul>
+<li>使用ubuntu默认库安装Chrome和Pepper Flash Player<figure class="highlight smali"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install chromium-browser</span><br><span class="line">sudo<span class="instruction"> add-apt-repository </span>ppa:skunk/pepper-flash</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install pepflashplugin-installer</span><br><span class="line">sudo update-pepperflashplugin-nonfree --install</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="2-输入法">2.输入法</h1><ul>
+<li>搜狗输入法，选择对应的操作系统位数下载，点击deb包安装<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">http:</span><span class="comment">//pinyin.sogou.com/linux/?r=pinyin</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="3-终端">3.终端</h1><ul>
+<li><a href="http://blog.jobbole.com/59165/" target="_blank" rel="external">linux终端选择参考</a></li>
+<li>ubuntu下是使用Terminator和Guake，mac下使用iTerm2，安装后自行配置终端颜色，字体，透明度，快捷键<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">apt-get <span class="operator"><span class="keyword">install</span> terminator</span><br><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> guake</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="4-Consolas字体添加">4.Consolas字体添加</h1><ul>
+<li>添加consolas字体，修改终端Terminator和Guake字体，选择consolas字体，退出重新打开终端即可以生效<figure class="highlight perl"><table><tr><td class="code"><pre><span class="line">wget http:<span class="regexp">//pan</span>.baidu.com/<span class="regexp">s/1pLlCY5l</span><br><span class="line">mkdir /usr/share</span><span class="regexp">/fonts/winfonts</span></span><br><span class="line">sudo cp consolas /usr/share/fonts/winfonts/</span><br><span class="line">cd /usr/share/fonts/winfonts/</span><br><span class="line">sudo mkfontscale    <span class="comment"># 创建字体的fonts.scale文件，它用来控制字体旋转缩放</span></span><br><span class="line">sudo mkfontdir      <span class="comment"># 创建字体的fonts.dir文件，它用来控制字体粗斜体产生</span></span><br><span class="line">sudo fc-cache -fv   <span class="comment"># 建立字体缓存信息，也就是让系统认识认识新字体</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="5-Awesome桌面环境安装">5.Awesome桌面环境安装</h1><ul>
+<li><p>awesome是一款平铺式窗口管理器，将所有打开的窗口设置成各种平铺方式，让它们之间无间隙的平铺于桌面上。awesome可以全部使用键盘来操作窗口。安装完后，注销用户，然后在登录时选择awesome即可。</p>
 <figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">sudo apt-get install awesome awesome-extra</span><br><span class="line">cp <span class="regexp">/etc/</span>xdg<span class="regexp">/awesome/</span>rc.lua ~<span class="regexp">/.config/</span>awesome</span><br></pre></td></tr></table></figure>
-<p>Gnome Do能根据用户键入的内容进行自动匹配，从而快速打开系统中已有的程序、文件、书签等<br><figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install gnome-<span class="keyword">do</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="6-VirtualBox安装">6.VirtualBox安装</h1><ul>
-<li>在ubuntu安装windows虚拟机，装一些windows常用的工具，抓包工具feddle，聊天工具qq</li>
+</li>
+<li><p>Gnome Do能根据用户键入的内容进行自动匹配，从而快速打开系统中已有的程序、文件、书签等</p>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install gnome-<span class="keyword">do</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="6-VirtualBox虚拟环境安">6.VirtualBox虚拟环境安</h1><ul>
+<li>在ubuntu安装虚拟机windows，装一些windows常用的工具，抓包工具feddle，聊天工具qq</li>
 <li>网络使用桥接模式，使用增强功能，传输文件使用共享文件夹</li>
 <li><a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank" rel="external">https://www.virtualbox.org/wiki/Linux_Downloads</a><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">wget http:<span class="comment">//download.virtualbox.org/virtualbox/5.1.18/virtualbox-5.1_5.1.18-114002~Ubuntu~trusty_amd64.deb</span></span><br><span class="line">sudo dpkg -i virtualbox-<span class="number">5.1</span>_5<span class="number">.1</span><span class="number">.18</span>-<span class="number">114002</span>~Ubuntu~trusty_amd64.deb</span><br></pre></td></tr></table></figure>
 </li>
