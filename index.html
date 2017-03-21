@@ -304,9 +304,9 @@
 <h3 id="二、redis配置文件">二、redis配置文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/redis-server-------------redis的可执行程序</span><br><span class="line">/etc/redis/redis.conf----------------redis的配置文件</span><br><span class="line">/usr/bin/redis-server---------------redis的自启动文件</span><br></pre></td></tr></table></figure>
 <h3 id="三、redis默认配置的端口号是6379，添加多配置一个6380端口">三、redis默认配置的端口号是6379，添加多配置一个6380端口</h3><ul>
 <li><p>复制redis配置文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp /etc/redis/redis.conf /etc/redis/redis6380.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp /etc/redis/redis.conf /etc/redis/redis_6380.conf</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>修改redis6380.conf文件，vim /etc/redis/redis6380.conf</p>
+<li><p>修改redis6380.conf文件，vim /etc/redis/redis_6380.conf</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pidfile /var/run/redis/redis-server6380.pid</span><br><span class="line">port <span class="number">6380</span></span><br><span class="line">logfile /var/<span class="built_in">log</span>/redis/redis-server6380.log</span><br><span class="line">dbfilename dump6380.rdb</span><br><span class="line"><span class="built_in">bind</span> <span class="number">0.0</span>.<span class="number">0.0</span>    <span class="comment"># 允许其他服务器访问</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -887,6 +887,11 @@
 <h1 id="5-Awesome桌面环境安装">5.Awesome桌面环境安装</h1><p>awesome是一款平铺式窗口管理器，将所有打开的窗口设置成各种平铺方式，让它们之间无间隙的平铺于桌面上。awesome可以全部使用键盘来操作窗口。安装完后，注销用户，然后在登录时选择awesome即可。</p>
 <figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">sudo apt-get install awesome awesome-extra</span><br><span class="line">cp <span class="regexp">/etc/</span>xdg<span class="regexp">/awesome/</span>rc.lua ~<span class="regexp">/.config/</span>awesome</span><br></pre></td></tr></table></figure>
 <p>Gnome Do能根据用户键入的内容进行自动匹配，从而快速打开系统中已有的程序、文件、书签等<br><figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install gnome-<span class="keyword">do</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="6-VirtualBox安装">6.VirtualBox安装</h1><ul>
+<li>在ubuntu安装windows虚拟机，装一些windows常用的工具，抓包工具feddle，聊天工具qq</li>
+<li>网络使用桥接模式，使用增强功能，传输文件使用共享文件夹</li>
+<li><a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank" rel="external">https://www.virtualbox.org/wiki/Linux_Downloads</a></li>
+</ul>
 
           
         
@@ -1558,7 +1563,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
