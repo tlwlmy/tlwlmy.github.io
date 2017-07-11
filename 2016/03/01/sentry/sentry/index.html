@@ -58,12 +58,13 @@
 
 
 <meta name="description" content="Sentry 是一款基于 Django 实现的日志管理工具，Disqus 团队对其代码贡献不少。虽然 Sentry 本身是 Python 实现的，但是其日志监控功能却不局限于 python，对诸如 Node.js, php, ruby, C#, java 等语言的项目都可以做到无缝集成，甚至可以用来对 iOS, Android 移动客户端以及 Web前端异常进行跟踪。主动上报的方式将错误信息等进行">
+<meta name="keywords" content="sentry,log,python,django">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sentry">
 <meta property="og:url" content="http://www.tlwlmy.com/2016/03/01/sentry/sentry/index.html">
-<meta property="og:site_name" content="tlwlmy'blog">
+<meta property="og:site_name" content="tlwlmy&#39;blog">
 <meta property="og:description" content="Sentry 是一款基于 Django 实现的日志管理工具，Disqus 团队对其代码贡献不少。虽然 Sentry 本身是 Python 实现的，但是其日志监控功能却不局限于 python，对诸如 Node.js, php, ruby, C#, java 等语言的项目都可以做到无缝集成，甚至可以用来对 iOS, Android 移动客户端以及 Web前端异常进行跟踪。主动上报的方式将错误信息等进行">
-<meta property="og:updated_time" content="2016-03-02T08:37:49.000Z">
+<meta property="og:updated_time" content="2017-07-11T01:38:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sentry">
 <meta name="twitter:description" content="Sentry 是一款基于 Django 实现的日志管理工具，Disqus 团队对其代码贡献不少。虽然 Sentry 本身是 Python 实现的，但是其日志监控功能却不局限于 python，对诸如 Node.js, php, ruby, C#, java 等语言的项目都可以做到无缝集成，甚至可以用来对 iOS, Android 移动客户端以及 Web前端异常进行跟踪。主动上报的方式将错误信息等进行">
@@ -289,59 +290,62 @@
 
       
         <p>Sentry 是一款基于 Django 实现的日志管理工具，Disqus 团队对其代码贡献不少。虽然 Sentry 本身是 Python 实现的，但是其日志监控功能却不局限于 python，对诸如 Node.js, php, ruby, C#, java 等语言的项目都可以做到无缝集成，甚至可以用来对 iOS, Android 移动客户端以及 Web前端异常进行跟踪。主动上报的方式将错误信息等进行收集汇总和提醒，以帮助我们及时发现项目中的问题。<br><a id="more"></a></p>
-<h3 id="1-安装环境">1.安装环境</h3><ul>
+<h3 id="1-安装环境"><a href="#1-安装环境" class="headerlink" title="1.安装环境"></a>1.安装环境</h3><ul>
 <li>python2.7</li>
 <li>python-setuptools, python-pip, python-dev, libxslt1-dev, libxml2-dev, libz-dev, libffi-dev, libssl-dev, libpq-dev, libyaml-dev</li>
 <li>redis &gt;= 2.8.9</li>
 <li>nginx</li>
 <li>mysql</li>
 </ul>
-<h3 id="2-python环境配置">2.python环境配置</h3><ul>
+<h3 id="2-python环境配置"><a href="#2-python环境配置" class="headerlink" title="2.python环境配置"></a>2.python环境配置</h3><ul>
 <li><p>虚拟环境安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install virtualenv</span><br><span class="line">pip install virtualenvwrapper</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">pip install virtualenv</div><div class="line">pip install virtualenvwrapper</div></pre></td></tr></table></figure>
 </li>
 <li><p>虚拟环境配置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> WORKON_HOME=~/.virtualenvs</span><br><span class="line">mkdir <span class="variable">$WORKON_HOME</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"export WORKON_HOME=<span class="variable">$WORKON_HOME</span>"</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"source /usr/local/bin/virtualenvwrapper.sh"</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"export PIP_VIRTUALENV_BASE=<span class="variable">$WORKON_HOME</span>"</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="built_in">export</span> WORKON_HOME=~/.virtualenvs</div><div class="line">mkdir <span class="variable">$WORKON_HOME</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"export WORKON_HOME=<span class="variable">$WORKON_HOME</span>"</span> &gt;&gt; ~/.bashrc</div><div class="line"><span class="built_in">echo</span> <span class="string">"source /usr/local/bin/virtualenvwrapper.sh"</span> &gt;&gt; ~/.bashrc</div><div class="line"><span class="built_in">echo</span> <span class="string">"export PIP_VIRTUALENV_BASE=<span class="variable">$WORKON_HOME</span>"</span> &gt;&gt; ~/.bashrc</div><div class="line"><span class="built_in">source</span> ~/.bashrc</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
-<li>基本命令<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkvirtualenv <span class="built_in">test</span></span><br><span class="line">workon <span class="built_in">test</span></span><br><span class="line">deactivate</span><br><span class="line">rmvirtualenv <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<li>基本命令<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">mkvirtualenv <span class="built_in">test</span></div><div class="line">workon <span class="built_in">test</span></div><div class="line">deactivate</div><div class="line">rmvirtualenv <span class="built_in">test</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="3-sentry安装">3.sentry安装</h3><ul>
+<h3 id="3-sentry安装"><a href="#3-sentry安装" class="headerlink" title="3.sentry安装"></a>3.sentry安装</h3><ul>
 <li><p>新建虚拟环境</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkvirtualenv sentry</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">mkvirtualenv sentry</div></pre></td></tr></table></figure>
 </li>
 <li><p>安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install sentry</span><br><span class="line">pip install MYSQL-python</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">pip install sentry</div><div class="line">pip install MYSQL-python</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="4-sentry配置">4.sentry配置</h3><ul>
+<h3 id="4-sentry配置"><a href="#4-sentry配置" class="headerlink" title="4.sentry配置"></a>4.sentry配置</h3><ul>
 <li><p>初始化</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sentry init /etc/sentry</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sentry init /etc/sentry</div></pre></td></tr></table></figure>
 </li>
 <li><p>修改/etc/sentry/sentry.conf.py数据库配置</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"> DATABASES = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>,</span><br><span class="line">        <span class="string">'NAME'</span>: <span class="string">'sentry'</span>,</span><br><span class="line">        <span class="string">'USER'</span>: <span class="string">'sentry'</span>,</span><br><span class="line">        <span class="string">'PASSWORD'</span>: <span class="string">''</span>,</span><br><span class="line">        <span class="string">'HOST'</span>: <span class="string">''</span>,</span><br><span class="line">        <span class="string">'PORT'</span>: <span class="string">'3306'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"> DATABASES = &#123;</div><div class="line">    <span class="string">'default'</span>: &#123;</div><div class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>,</div><div class="line">        <span class="string">'NAME'</span>: <span class="string">'sentry'</span>,</div><div class="line">        <span class="string">'USER'</span>: <span class="string">'sentry'</span>,</div><div class="line">        <span class="string">'PASSWORD'</span>: <span class="string">''</span>,</div><div class="line">        <span class="string">'HOST'</span>: <span class="string">''</span>,</div><div class="line">        <span class="string">'PORT'</span>: <span class="string">'3306'</span>,</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>sentry启动,upgrade过程可以创建超级用户</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sentry --config=/etc/sentry/sentry.conf.py upgrade</span><br><span class="line">sentry --config=/etc/sentry/sentry.conf.py start</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sentry --config=/etc/sentry/sentry.conf.py upgrade</div><div class="line">sentry --config=/etc/sentry/sentry.conf.py start</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建用户</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="attr">SENTRY_CONF</span>=/etc/sentry sentry createuser</div></pre></td></tr></table></figure>
 </li>
 <li><p>sentry三个主要模块：web，worker，cron，用supervisor启动的</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[program:sentry-web]</span><br><span class="line">directory=/home/ymserver</span><br><span class="line"><span class="built_in">command</span>=/home/ymserver/virtualenv/sentry/bin/sentry --config=/etc/sentry/sentry.conf.py start</span><br><span class="line">autostart=<span class="literal">true</span></span><br><span class="line">autorestart=<span class="literal">true</span></span><br><span class="line">redirect_stderr=<span class="literal">true</span></span><br><span class="line">stdout_logfile=/data/<span class="built_in">log</span>/supervisor/sentry-web.log</span><br><span class="line"></span><br><span class="line">[program:sentry-worker]</span><br><span class="line">directory=/home/ymserver</span><br><span class="line"><span class="built_in">command</span>=/home/ymserver/virtualenv/sentry/bin/sentry --config=/etc/sentry/sentry.conf.py celery worker</span><br><span class="line">autostart=<span class="literal">true</span></span><br><span class="line">autorestart=<span class="literal">true</span></span><br><span class="line">redirect_stderr=<span class="literal">true</span></span><br><span class="line">stdout_logfile=/data/<span class="built_in">log</span>/supervisor/sentry-worker.log</span><br><span class="line">user=ymserver</span><br><span class="line"></span><br><span class="line">[program:sentry-cron]</span><br><span class="line">directory=/home/ymserver</span><br><span class="line"><span class="built_in">command</span>=/home/ymserver/virtualenv/sentry/bin/sentry --config=/etc/sentry/sentry.conf.py celery beat</span><br><span class="line">autostart=<span class="literal">true</span></span><br><span class="line">autorestart=<span class="literal">true</span></span><br><span class="line">redirect_stderr=<span class="literal">true</span></span><br><span class="line">stdout_logfile=/data/<span class="built_in">log</span>/supervisor/sentry-cron.log</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">[program:sentry-web]</div><div class="line">directory=/home/ymserver</div><div class="line"><span class="built_in">command</span>=/home/ymserver/virtualenv/sentry/bin/sentry --config=/etc/sentry/sentry.conf.py start</div><div class="line">autostart=<span class="literal">true</span></div><div class="line">autorestart=<span class="literal">true</span></div><div class="line">redirect_stderr=<span class="literal">true</span></div><div class="line">stdout_logfile=/data/<span class="built_in">log</span>/supervisor/sentry-web.log</div><div class="line"></div><div class="line">[program:sentry-worker]</div><div class="line">directory=/home/ymserver</div><div class="line"><span class="built_in">command</span>=/home/ymserver/virtualenv/sentry/bin/sentry --config=/etc/sentry/sentry.conf.py celery worker</div><div class="line">autostart=<span class="literal">true</span></div><div class="line">autorestart=<span class="literal">true</span></div><div class="line">redirect_stderr=<span class="literal">true</span></div><div class="line">stdout_logfile=/data/<span class="built_in">log</span>/supervisor/sentry-worker.log</div><div class="line">user=ymserver</div><div class="line"></div><div class="line">[program:sentry-cron]</div><div class="line">directory=/home/ymserver</div><div class="line"><span class="built_in">command</span>=/home/ymserver/virtualenv/sentry/bin/sentry --config=/etc/sentry/sentry.conf.py celery beat</div><div class="line">autostart=<span class="literal">true</span></div><div class="line">autorestart=<span class="literal">true</span></div><div class="line">redirect_stderr=<span class="literal">true</span></div><div class="line">stdout_logfile=/data/<span class="built_in">log</span>/supervisor/sentry-cron.log</div></pre></td></tr></table></figure>
 </li>
 <li><p><a href="http://www.tlwlmy.com/2016/03/01/sentry-nginx/">nginx配置</a></p>
 </li>
 <li><a href="http://www.tlwlmy.com/2016/03/01/sentry-conf/">sentry.conf.py配置</a></li>
 </ul>
-<h3 id="5-sentry应用python">5.sentry应用python</h3><ul>
+<h3 id="5-sentry应用python"><a href="#5-sentry应用python" class="headerlink" title="5.sentry应用python"></a>5.sentry应用python</h3><ul>
 <li><p>python安装raven库就可以直接调用了</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install raven --upgrade</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">pip install raven --upgrade</div></pre></td></tr></table></figure>
 </li>
 <li><p>例子</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> raven <span class="keyword">import</span> Client</span><br><span class="line">client = Client(<span class="string">'https://&lt;key&gt;:&lt;secret&gt;@app.getsentry.com/&lt;project&gt;'</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="number">1</span> / <span class="number">0</span></span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">    client.captureException()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">from</span> raven <span class="keyword">import</span> Client</div><div class="line">client = Client(<span class="string">'https://&lt;key&gt;:&lt;secret&gt;@app.getsentry.com/&lt;project&gt;'</span>)</div><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="number">1</span> / <span class="number">0</span></div><div class="line"><span class="keyword">except</span> ZeroDivisionError:</div><div class="line">    client.captureException()</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="6-参考">6.参考</h3><ul>
+<h3 id="6-参考"><a href="#6-参考" class="headerlink" title="6.参考"></a>6.参考</h3><ul>
 <li><a href="https://docs.getsentry.com/on-premise/server/installation/" target="_blank" rel="external">https://docs.getsentry.com/on-premise/server/installation/</a></li>
 <li><a href="https://docs.getsentry.com/hosted/clients/python/" target="_blank" rel="external">https://docs.getsentry.com/hosted/clients/python/</a></li>
 <li><a href="http://blog.gaoyuan.xyz/2013/12/18/deploy-sentry-in-product/" target="_blank" rel="external">http://blog.gaoyuan.xyz/2013/12/18/deploy-sentry-in-product/</a></li>

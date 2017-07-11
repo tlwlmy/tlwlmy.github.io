@@ -57,15 +57,12 @@
 
 
 
-<meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="tlwlmy'blog">
+<meta property="og:title" content="tlwlmy&#39;blog">
 <meta property="og:url" content="http://www.tlwlmy.com/index.html">
-<meta property="og:site_name" content="tlwlmy'blog">
-<meta property="og:description">
+<meta property="og:site_name" content="tlwlmy&#39;blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tlwlmy'blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="tlwlmy&#39;blog">
 
 
 
@@ -300,37 +297,37 @@
       
         
           
-            <h3 id="一、安装最新的redis版本">一、安装最新的redis版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get remove redis-server    <span class="comment"># 删除旧版</span></span><br><span class="line">apt-get autoremove</span><br><span class="line">sudo apt-get install -y python-software-properties</span><br><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository -y ppa:rwky/redis</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y redis-server</span><br></pre></td></tr></table></figure>
-<h3 id="二、redis配置文件">二、redis配置文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/redis-server-------------redis的可执行程序</span><br><span class="line">/etc/redis/redis.conf----------------redis的配置文件</span><br><span class="line">/usr/bin/redis-server---------------redis的自启动文件</span><br></pre></td></tr></table></figure>
-<h3 id="三、redis默认配置的端口号是6379，添加多配置一个6380端口">三、redis默认配置的端口号是6379，添加多配置一个6380端口</h3><ul>
+            <h3 id="一、安装最新的redis版本"><a href="#一、安装最新的redis版本" class="headerlink" title="一、安装最新的redis版本"></a>一、安装最新的redis版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">apt-get remove redis-server    <span class="comment"># 删除旧版</span></div><div class="line">apt-get autoremove</div><div class="line">sudo apt-get install -y python-software-properties</div><div class="line">sudo apt-get install software-properties-common</div><div class="line">sudo add-apt-repository -y ppa:rwky/redis</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install -y redis-server</div></pre></td></tr></table></figure>
+<h3 id="二、redis配置文件"><a href="#二、redis配置文件" class="headerlink" title="二、redis配置文件"></a>二、redis配置文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">/etc/init.d/redis-server-------------redis的可执行程序</div><div class="line">/etc/redis/redis.conf----------------redis的配置文件</div><div class="line">/usr/bin/redis-server---------------redis的自启动文件</div></pre></td></tr></table></figure>
+<h3 id="三、redis默认配置的端口号是6379，添加多配置一个6380端口"><a href="#三、redis默认配置的端口号是6379，添加多配置一个6380端口" class="headerlink" title="三、redis默认配置的端口号是6379，添加多配置一个6380端口"></a>三、redis默认配置的端口号是6379，添加多配置一个6380端口</h3><ul>
 <li><p>复制redis配置文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp /etc/redis/redis.conf /etc/redis/redis_6380.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">cp /etc/redis/redis.conf /etc/redis/redis_6380.conf</div></pre></td></tr></table></figure>
 </li>
 <li><p>修改redis6380.conf文件，vim /etc/redis/redis_6380.conf</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pidfile /var/run/redis/redis-server6380.pid</span><br><span class="line">port <span class="number">6380</span></span><br><span class="line">logfile /var/<span class="built_in">log</span>/redis/redis-server6380.log</span><br><span class="line">dbfilename dump6380.rdb</span><br><span class="line"><span class="built_in">bind</span> <span class="number">0.0</span>.<span class="number">0.0</span>    <span class="comment"># 允许其他服务器访问</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">pidfile /var/run/redis/redis-server6380.pid</div><div class="line">port 6380</div><div class="line">logfile /var/<span class="built_in">log</span>/redis/redis-server6380.log</div><div class="line">dbfilename dump6380.rdb</div><div class="line"><span class="built_in">bind</span> 0.0.0.0    <span class="comment"># 允许其他服务器访问</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="四、添加redis6380执行文件">四、添加redis6380执行文件</h3><ul>
+<h3 id="四、添加redis6380执行文件"><a href="#四、添加redis6380执行文件" class="headerlink" title="四、添加redis6380执行文件"></a>四、添加redis6380执行文件</h3><ul>
 <li><p>复制redis执行文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo cp /etc/init.d/redis-server /etc/init.d/redis-server6380</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo cp /etc/init.d/redis-server /etc/init.d/redis-server6380</div></pre></td></tr></table></figure>
 </li>
 <li><p>修改redis-server6380配置文件对应位置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">DAEMON=/usr/bin/redis-server</span><br><span class="line">DAEMON_ARGS=/etc/redis/redis_6380.conf</span><br><span class="line">NAME=redis-server</span><br><span class="line">DESC=redis-server6380</span><br><span class="line"></span><br><span class="line">RUNDIR=/var/run/redis</span><br><span class="line">PIDFILE=<span class="variable">$RUNDIR</span>/redis-server6380.pid</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">DAEMON=/usr/bin/redis-server</div><div class="line">DAEMON_ARGS=/etc/redis/redis_6380.conf</div><div class="line">NAME=redis-server</div><div class="line">DESC=redis-server6380</div><div class="line"></div><div class="line">RUNDIR=/var/run/redis</div><div class="line">PIDFILE=<span class="variable">$RUNDIR</span>/redis-server6380.pid</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="五、启动redis6380">五、启动redis6380</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo service redis-server6380 (start|stop|restart)</span><br></pre></td></tr></table></figure>
-<h3 id="六、添加redis6380开机启动设置">六、添加redis6380开机启动设置</h3><ul>
+<h3 id="五、启动redis6380"><a href="#五、启动redis6380" class="headerlink" title="五、启动redis6380"></a>五、启动redis6380</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo service redis-server6380 (start|stop|restart)</div></pre></td></tr></table></figure>
+<h3 id="六、添加redis6380开机启动设置"><a href="#六、添加redis6380开机启动设置" class="headerlink" title="六、添加redis6380开机启动设置"></a>六、添加redis6380开机启动设置</h3><ul>
 <li><p>开机启动设置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo update-rc.d redis-server6380 defaults <span class="number">20</span>    <span class="comment"># 开机启动</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo update-rc.d redis-server6380 defaults 20    <span class="comment"># 开机启动</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>取消开启启动设置</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sudo <span class="operator"><span class="keyword">update</span>-rc.<span class="keyword">d</span> -<span class="keyword">f</span> redis-server6380 remove</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">sudo update-rc<span class="selector-class">.d</span> -f redis-server6380 remove</div></pre></td></tr></table></figure>
 </li>
 <li><p>测试开机启动，redis6380是否运行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo reboot    <span class="comment"># 重启</span></span><br><span class="line">ps axu | grep redis    <span class="comment"># 查询redis进程</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo reboot    <span class="comment"># 重启</span></div><div class="line">ps axu | grep redis    <span class="comment"># 查询redis进程</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="参考">参考</h3><ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="http://www.cnblogs.com/limx/p/5690604.html" target="_blank" rel="external">http://www.cnblogs.com/limx/p/5690604.html</a></li>
 <li><a href="https://makandracards.com/makandra/7965-run-multiple-redis-servers-on-ubuntu" target="_blank" rel="external">https://makandracards.com/makandra/7965-run-multiple-redis-servers-on-ubuntu</a></li>
 </ul>
@@ -429,7 +426,7 @@
       
         
           
-            <h3 id="技术">技术</h3><table>
+            <h3 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h3><table>
 <thead>
 <tr>
 <th>配件</th>
@@ -519,7 +516,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="设计">设计</h3><table>
+<h3 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h3><table>
 <thead>
 <tr>
 <th>配件</th>
@@ -539,7 +536,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="商务产品">商务产品</h3><table>
+<h3 id="商务产品"><a href="#商务产品" class="headerlink" title="商务产品"></a>商务产品</h3><table>
 <thead>
 <tr>
 <th>配件</th>
@@ -654,30 +651,30 @@
       
         
           
-            <h3 id="查看phpmyadmin安装目录">查看phpmyadmin安装目录</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ whereis phpmyadmin</span><br><span class="line">phpmyadmin: /etc/phpmyadmin /usr/share/phpmyadmin</span><br></pre></td></tr></table></figure>
-<h3 id="方法一">方法一</h3><ul>
-<li>修改/usr/share/phpmyadmin/libraries/config.default.php<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** </span><br><span class="line"> * allow login to any user entered server in cookie based authentication </span><br><span class="line"> * </span><br><span class="line"> * <span class="doctag">@global</span> boolean $cfg['AllowArbitraryServer'] </span><br><span class="line"> */</span>  </span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'AllowArbitraryServer'</span>] = <span class="keyword">true</span>; <span class="comment">//默认是false,改成true</span></span><br></pre></td></tr></table></figure>
+            <h3 id="查看phpmyadmin安装目录"><a href="#查看phpmyadmin安装目录" class="headerlink" title="查看phpmyadmin安装目录"></a>查看phpmyadmin安装目录</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ whereis phpmyadmin</div><div class="line">phpmyadmin: /etc/phpmyadmin /usr/share/phpmyadmin</div></pre></td></tr></table></figure>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><ul>
+<li>修改/usr/share/phpmyadmin/libraries/config.default.php<figure class="highlight php"><table><tr><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * allow login to any user entered server in cookie based authentication </div><div class="line"> * </div><div class="line"> * <span class="doctag">@global</span> boolean $cfg['AllowArbitraryServer'] </div><div class="line"> */  </div><div class="line">$cfg[<span class="string">'AllowArbitraryServer'</span>] = <span class="keyword">true</span>; <span class="comment">//默认是false,改成true</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="方法二">方法二</h3><ul>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><ul>
 <li><p>复制/usr/share/phpmyadmin/config.sample.inc.php，命名为config.inc.php</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/share/phpmyadmin</span><br><span class="line">$ sudo cp config.sample.inc.php config.inc.php</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> /usr/share/phpmyadmin</div><div class="line">$ sudo cp config.sample.inc.php config.inc.php</div></pre></td></tr></table></figure>
 </li>
 <li><p>修改config.inc.php文件，在第一个Servers配置下加多一个数据库配置</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$i</span>++;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'verbose'</span>] = <span class="string">'tlwlmy'</span>;    <span class="comment">// 链接名字</span></span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'host'</span>] = <span class="string">'192.168.0.1'</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'port'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'socket'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'connect_type'</span>] = <span class="string">'tcp'</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'extension'</span>] = <span class="string">'mysqli'</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'auth_type'</span>] = <span class="string">'cookie'</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'AllowNoPassword'</span>] = <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><div class="line">$i++;</div><div class="line">$cfg[<span class="string">'Servers'</span>][$i][<span class="string">'verbose'</span>] = <span class="string">'tlwlmy'</span>;    <span class="comment">// 链接名字</span></div><div class="line">$cfg[<span class="string">'Servers'</span>][$i][<span class="string">'host'</span>] = <span class="string">'192.168.0.1'</span>;</div><div class="line">$cfg[<span class="string">'Servers'</span>][$i][<span class="string">'port'</span>] = <span class="string">''</span>;</div><div class="line">$cfg[<span class="string">'Servers'</span>][$i][<span class="string">'socket'</span>] = <span class="string">''</span>;</div><div class="line">$cfg[<span class="string">'Servers'</span>][$i][<span class="string">'connect_type'</span>] = <span class="string">'tcp'</span>;</div><div class="line">$cfg[<span class="string">'Servers'</span>][$i][<span class="string">'extension'</span>] = <span class="string">'mysqli'</span>;</div><div class="line">$cfg[<span class="string">'Servers'</span>][$i][<span class="string">'auth_type'</span>] = <span class="string">'cookie'</span>;</div><div class="line">$cfg[<span class="string">'Servers'</span>][$i][<span class="string">'AllowNoPassword'</span>] = <span class="keyword">false</span>;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="方法三">方法三</h3><ul>
-<li>修改/etc/phpmyadmin/config.inc.php，在第一个Servers配置下加多一个数据库配置<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$i</span>++;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'verbose'</span>] = <span class="string">'tlwlmy'</span>;    <span class="comment">// 链接名字</span></span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'host'</span>] = <span class="string">'192.168.0.1'</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'port'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'socket'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'connect_type'</span>] = <span class="string">'tcp'</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'extension'</span>] = <span class="string">'mysqli'</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'auth_type'</span>] = <span class="string">'cookie'</span>;</span><br><span class="line"><span class="variable">$cfg</span>[<span class="string">'Servers'</span>][<span class="variable">$i</span>][<span class="string">'AllowNoPassword'</span>] = <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><ul>
+<li>修改/etc/phpmyadmin/config.inc.php，在第一个Servers配置下加多一个数据库配置<figure class="highlight php"><table><tr><td class="code"><pre><div class="line">$i++;</div><div class="line">$cfg[<span class="string">'Servers'</span>][$i][<span class="string">'verbose'</span>] = <span class="string">'tlwlmy'</span>;    <span class="comment">// 链接名字</span></div><div class="line">$cfg[<span class="string">'Servers'</span>][$i][<span class="string">'host'</span>] = <span class="string">'192.168.0.1'</span>;</div><div class="line">$cfg[<span class="string">'Servers'</span>][$i][<span class="string">'port'</span>] = <span class="string">''</span>;</div><div class="line">$cfg[<span class="string">'Servers'</span>][$i][<span class="string">'socket'</span>] = <span class="string">''</span>;</div><div class="line">$cfg[<span class="string">'Servers'</span>][$i][<span class="string">'connect_type'</span>] = <span class="string">'tcp'</span>;</div><div class="line">$cfg[<span class="string">'Servers'</span>][$i][<span class="string">'extension'</span>] = <span class="string">'mysqli'</span>;</div><div class="line">$cfg[<span class="string">'Servers'</span>][$i][<span class="string">'auth_type'</span>] = <span class="string">'cookie'</span>;</div><div class="line">$cfg[<span class="string">'Servers'</span>][$i][<span class="string">'AllowNoPassword'</span>] = <span class="keyword">false</span>;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="总结">总结</h3><ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
 <li>使用第一种方法，需要自己填写host，切换数据库比较麻烦</li>
 <li>第二种方法是网上大多数查到的，但是修改配置很多次都不成功</li>
 <li>第三种方法，成功配置了，其实效果是和第二种一样的</li>
 <li>第二种方法不成功可能是因为读取的配置文件可能是使用/etc/phpmyadmin/config.inc.php，而不是/usr/share/phpmyadmin/config.inc.php下的</li>
 </ul>
-<h3 id="参考">参考</h3><ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="http://blog.51yip.com/mysql/1250.html（方法一和方法二）" target="_blank" rel="external">http://blog.51yip.com/mysql/1250.html（方法一和方法二）</a></li>
 <li><a href="http://www.onlinehowto.net/config-multiple-servers-in-phpmyadmin/1405（方法二）" target="_blank" rel="external">http://www.onlinehowto.net/config-multiple-servers-in-phpmyadmin/1405（方法二）</a></li>
 <li><a href="http://www.linuxfunda.com/2013/10/06/how-to-manage-multiple-mysql-server-using-one-phpmyadmin/（方法三）" target="_blank" rel="external">http://www.linuxfunda.com/2013/10/06/how-to-manage-multiple-mysql-server-using-one-phpmyadmin/（方法三）</a></li>
@@ -777,141 +774,15 @@
       
         
           
-            <h3 id="blueprint和url_for">blueprint和url_for</h3><pre><code>- 组织module的一个很好的方式, 通常我们会为不同的 Blueprint 设置不同的url prefix.
-- 在设置了url prefix后, <span class="tag">html</span> 模板中与这个blueprint相关的link 字符串, 都需要加上url prefix, 否则路由地址就不对了.
-- 当然这样的写法其实很是很糟糕的, hard <span class="tag">code</span> 的url prefix一多, 哪一天要调整这个url prefix就麻烦了
-- 最好的作法, 当然不是到处hard <span class="tag">code</span> 链接地址了, 推荐使用<span class="function"><span class="title">url_for</span><span class="params">()</span></span>函数.  
-- 但加了url prefix之后, 使用 <span class="function"><span class="title">url_for</span><span class="params">()</span></span> 函数时, 需要为view函数加一个命名空间, 到底这个命名空间取什么,  结论是 Blueprint的名称, 不是Blueprint对象的名称, 也不是python 模块的名称
-</code></pre><h3 id="url_for使用例子">url_for使用例子</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line">#views.pyapp = Blueprint('user', __name__, url_prefix='/username')  #Blueprint的名称是 user@app.route("/user_info/&lt;username&gt;/&lt;time_id&gt;")def user_info(username, time_id):    return 'a,b,c,d,e'    def redirect_sample():    return redirect(url_for('user.user_info', user_name='tlwlmy', time_id='201406'))    模板上的写法也是一样,    &lt;a href="&#123;&#123; url_for('muser.user_info', report_name='tlwlmy', time_id='201406')&#125;&#125;"&gt;    get_user_info(201406)  &lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="参考文档">参考文档</h3><pre><code>-<span class="ruby"> <span class="symbol">http:</span>/<span class="regexp">/www.cnblogs.com/harrychinese</span><span class="regexp">/p/flask</span>_tips.html
-</span>-<span class="ruby"> <span class="symbol">http:</span>/<span class="regexp">/docs.jinkan.org/docs</span><span class="regexp">/flask/quickstart</span>.html</span>
+            <h3 id="blueprint和url-for"><a href="#blueprint和url-for" class="headerlink" title="blueprint和url_for"></a>blueprint和url_for</h3><pre><code>- 组织module的一个很好的方式, 通常我们会为不同的 Blueprint 设置不同的url prefix.
+- 在设置了url prefix后, html 模板中与这个blueprint相关的link 字符串, 都需要加上url prefix, 否则路由地址就不对了.
+- 当然这样的写法其实很是很糟糕的, hard code 的url prefix一多, 哪一天要调整这个url prefix就麻烦了
+- 最好的作法, 当然不是到处hard code 链接地址了, 推荐使用url_for()函数.  
+- 但加了url prefix之后, 使用 url_for() 函数时, 需要为view函数加一个命名空间, 到底这个命名空间取什么,  结论是 Blueprint的名称, 不是Blueprint对象的名称, 也不是python 模块的名称
+</code></pre><h3 id="url-for使用例子"><a href="#url-for使用例子" class="headerlink" title="url_for使用例子"></a>url_for使用例子</h3><figure class="highlight"><table><tr><td class="code"><pre><div class="line">#views.pyapp = Blueprint('user', __name__, url_prefix='/username')  #Blueprint的名称是 user@app.route("/user_info/&lt;username&gt;/&lt;time_id&gt;")def user_info(username, time_id):    return 'a,b,c,d,e'    def redirect_sample():    return redirect(url_for('user.user_info', user_name='tlwlmy', time_id='201406'))    模板上的写法也是一样,    &lt;a href="&#123;&#123; url_for('muser.user_info', report_name='tlwlmy', time_id='201406')&#125;&#125;"&gt;    get_user_info(201406)  &lt;/a&gt;</div></pre></td></tr></table></figure>
+<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><pre><code>- http://www.cnblogs.com/harrychinese/p/flask_tips.html
+- http://docs.jinkan.org/docs/flask/quickstart.html
 </code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/02/desptop_deployment/desptop_deployment_basic_conf/" itemprop="url">
-                  ubuntu14.04系统基本配置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-02T19:53:00+08:00" content="2016-04-02">
-              2016-04-02
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/02/desptop_deployment/desptop_deployment_basic_conf/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/02/desptop_deployment/desptop_deployment_basic_conf/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1-浏览器">1.浏览器</h1><ul>
-<li>使用ubuntu默认库安装Chrome和Pepper Flash Player<figure class="highlight smali"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install chromium-browser</span><br><span class="line">sudo<span class="instruction"> add-apt-repository </span>ppa:skunk/pepper-flash</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install pepflashplugin-installer</span><br><span class="line">sudo update-pepperflashplugin-nonfree --install</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="2-输入法">2.输入法</h1><ul>
-<li>搜狗输入法，选择对应的操作系统位数下载，点击deb包安装<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">http:</span><span class="comment">//pinyin.sogou.com/linux/?r=pinyin</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="3-终端">3.终端</h1><ul>
-<li><a href="http://blog.jobbole.com/59165/" target="_blank" rel="external">linux终端选择参考</a></li>
-<li>ubuntu下是使用Terminator和Guake，mac下使用iTerm2，安装后自行配置终端颜色，字体，透明度，快捷键<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">apt-get <span class="operator"><span class="keyword">install</span> terminator</span><br><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> guake</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="4-Consolas字体添加">4.Consolas字体添加</h1><ul>
-<li>添加consolas字体，修改终端Terminator和Guake字体，选择consolas字体，退出重新打开终端即可以生效<figure class="highlight perl"><table><tr><td class="code"><pre><span class="line">wget http:<span class="regexp">//pan</span>.baidu.com/<span class="regexp">s/1pLlCY5l</span><br><span class="line">mkdir /usr/share</span><span class="regexp">/fonts/winfonts</span></span><br><span class="line">sudo cp consolas /usr/share/fonts/winfonts/</span><br><span class="line">cd /usr/share/fonts/winfonts/</span><br><span class="line">sudo mkfontscale    <span class="comment"># 创建字体的fonts.scale文件，它用来控制字体旋转缩放</span></span><br><span class="line">sudo mkfontdir      <span class="comment"># 创建字体的fonts.dir文件，它用来控制字体粗斜体产生</span></span><br><span class="line">sudo fc-cache -fv   <span class="comment"># 建立字体缓存信息，也就是让系统认识认识新字体</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="5-Awesome桌面环境安装">5.Awesome桌面环境安装</h1><ul>
-<li><p>awesome是一款平铺式窗口管理器，将所有打开的窗口设置成各种平铺方式，让它们之间无间隙的平铺于桌面上。awesome可以全部使用键盘来操作窗口。安装完后，注销用户，然后在登录时选择awesome即可。</p>
-<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">sudo apt-get install awesome awesome-extra</span><br><span class="line">cp <span class="regexp">/etc/</span>xdg<span class="regexp">/awesome/</span>rc.lua ~<span class="regexp">/.config/</span>awesome</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Gnome Do能根据用户键入的内容进行自动匹配，从而快速打开系统中已有的程序、文件、书签等</p>
-<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install gnome-<span class="keyword">do</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="6-使用VirtualBox安装虚拟环境windows">6.使用VirtualBox安装虚拟环境windows</h1><ul>
-<li>在ubuntu安装虚拟机windows，装一些windows常用的工具，抓包工具feddle，聊天工具qq</li>
-<li>网络使用桥接模式，使用增强功能，传输文件使用共享文件夹</li>
-<li><a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank" rel="external">https://www.virtualbox.org/wiki/Linux_Downloads</a><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">wget http:<span class="comment">//download.virtualbox.org/virtualbox/5.1.18/virtualbox-5.1_5.1.18-114002~Ubuntu~trusty_amd64.deb</span></span><br><span class="line">sudo dpkg -i virtualbox-<span class="number">5.1</span>_5<span class="number">.1</span><span class="number">.18</span>-<span class="number">114002</span>~Ubuntu~trusty_amd64.deb</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
           
         
       
@@ -1006,42 +877,174 @@
       
         
           
-            <h3 id="1-根据显卡型号下载驱动">1.根据显卡型号下载驱动</h3><ul>
+            <h3 id="1-根据显卡型号下载驱动"><a href="#1-根据显卡型号下载驱动" class="headerlink" title="1.根据显卡型号下载驱动"></a>1.根据显卡型号下载驱动</h3><ul>
 <li>显卡型号：Nvidia GeForce GTX 750 ( 2 GB / 技嘉 )</li>
-<li>Nvidia官方显卡下载地址（<a href="http://www.geforce.cn/drivers)，选择对应的显卡型号下载，由于点击同意并下载，是跳到链接文件，需要采用wget方式下载，如下" target="_blank" rel="external">http://www.geforce.cn/drivers)，选择对应的显卡型号下载，由于点击同意并下载，是跳到链接文件，需要采用wget方式下载，如下</a><figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">wget http://cn.download.nvidia.com/XFree86/Linux-x<span class="number">86_64/361</span>.42/NVIDIA-Linux-x<span class="number">86_64-361</span>.42.run</span><br></pre></td></tr></table></figure>
+<li>Nvidia官方显卡下载地址（<a href="http://www.geforce.cn/drivers)，选择对应的显卡型号下载，由于点击同意并下载，是跳到链接文件，需要采用wget方式下载，如下" target="_blank" rel="external">http://www.geforce.cn/drivers)，选择对应的显卡型号下载，由于点击同意并下载，是跳到链接文件，需要采用wget方式下载，如下</a><figure class="highlight awk"><table><tr><td class="code"><pre><div class="line">wget http:<span class="regexp">//</span>cn.download.nvidia.com<span class="regexp">/XFree86/</span>Linux-x86_64<span class="regexp">/361.42/</span>NVIDIA-Linux-x86_64-<span class="number">361.42</span>.run</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="2-卸载Nvidia显卡，屏蔽其他显卡">2.卸载Nvidia显卡，屏蔽其他显卡</h3><ul>
+<h3 id="2-卸载Nvidia显卡，屏蔽其他显卡"><a href="#2-卸载Nvidia显卡，屏蔽其他显卡" class="headerlink" title="2.卸载Nvidia显卡，屏蔽其他显卡"></a>2.卸载Nvidia显卡，屏蔽其他显卡</h3><ul>
 <li><p>卸载显卡</p>
-<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> remove <span class="comment">--purge nvidia-*</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><div class="line">sudo apt-<span class="keyword">get</span> remove <span class="comment">--purge nvidia-*</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>将其他显卡加入黑名单列表，编辑/etc/modprobe.d/blacklist.conf文件，添加</p>
-<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">blacklist </span>vga16fb </span><br><span class="line"><span class="keyword">blacklist </span>nouveau</span><br><span class="line"><span class="keyword">blacklist </span>rivafb</span><br><span class="line"><span class="keyword">blacklist </span>nvidiafb</span><br><span class="line"><span class="keyword">blacklist </span>rivatv</span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><div class="line"><span class="keyword">blacklist </span>vga16fb </div><div class="line"><span class="keyword">blacklist </span>nouveau</div><div class="line"><span class="keyword">blacklist </span>rivafb</div><div class="line"><span class="keyword">blacklist </span>nvidiafb</div><div class="line"><span class="keyword">blacklist </span>rivatv</div></pre></td></tr></table></figure>
 </li>
 <li><p>保存文件，执行命令使黑名单列表生效</p>
-<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">sudo <span class="keyword">update</span>-initramfs -<span class="keyword">u</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><div class="line"><span class="attribute">sudo update-initramfs -u</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="3-显卡安装">3.显卡安装</h3><ul>
+<h3 id="3-显卡安装"><a href="#3-显卡安装" class="headerlink" title="3.显卡安装"></a>3.显卡安装</h3><ul>
 <li><p>进入系统，ctrl+alt+f1进入tty， 关闭lightdm</p>
-<figure class="highlight fortran"><table><tr><td class="code"><pre><span class="line">sudo service lightdm <span class="keyword">stop</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line">sudo service lightdm <span class="built_in">stop</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>安装显卡,安装期间会遇到报错the distribution-provided pre-install script failed!不必理会，继续安装</p>
-<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">chmod +x NVIDIA-Linux-*-.<span class="command">run</span></span><br><span class="line">./NVIDIA-Linux-*-.<span class="command">run</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><div class="line">chmod +x NVIDIA-Linux-*-<span class="string">.run</span></div><div class="line"><span class="string">./NVIDIA-Linux-</span>*-<span class="string">.run</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>重新启动lightdm</p>
-<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">sudo service lightdm <span class="built_in">start</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><div class="line">sudo service lightdm <span class="literal">start</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>重启电脑</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="title">sudo</span> reboot</span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><div class="line"><span class="attribute">sudo reboot</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="4-总结">4.总结</h3><ul>
+<h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h3><ul>
 <li>每次安装显卡都是一个蛋疼的过程，第一次安装成功显卡，都是重装系统十多次才搞定的。</li>
 <li>从ubuntu15.04装到14.04，用装15.04安装，直接花屏，进入连tty都是花屏，根本看不起输入的命令，连登陆用户都不可以，换了14.04后，有点花，但是还是可以看的清。</li>
 <li>有时候安装过程会出现无线网卡驱动没安装成功，只能用网线链接上网，sudo apt-get update一下才能用无线连上网。</li>
 <li>这次是第二次安装，重装了四，五次才成功，还是用14.04比较稳定，尝试使用nvidia-340安装驱动显卡，结果花屏，导致有重新用对应的显卡安装。</li>
 <li>每次使用ubuntu测试模式，显卡和无线网卡都是能正常使用，但是安装完总一个是有问题的。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/02/desptop_deployment/desptop_deployment_basic_conf/" itemprop="url">
+                  ubuntu14.04系统基本配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-02T19:53:00+08:00" content="2016-04-02">
+              2016-04-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/02/desptop_deployment/desptop_deployment_basic_conf/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/02/desptop_deployment/desptop_deployment_basic_conf/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-浏览器"><a href="#1-浏览器" class="headerlink" title="1.浏览器"></a>1.浏览器</h1><ul>
+<li>使用ubuntu默认库安装Chrome和Pepper Flash Player<figure class="highlight smali"><table><tr><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install chromium-browser</div><div class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:skunk/pepper-flash</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install pepflashplugin-installer</div><div class="line">sudo update-pepperflashplugin-nonfree --install</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="2-输入法"><a href="#2-输入法" class="headerlink" title="2.输入法"></a>2.输入法</h1><ul>
+<li>搜狗输入法，选择对应的操作系统位数下载，点击deb包安装<figure class="highlight awk"><table><tr><td class="code"><pre><div class="line">http:<span class="regexp">//</span>pinyin.sogou.com<span class="regexp">/linux/</span>?r=pinyin</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="3-终端"><a href="#3-终端" class="headerlink" title="3.终端"></a>3.终端</h1><ul>
+<li><a href="http://blog.jobbole.com/59165/" target="_blank" rel="external">linux终端选择参考</a></li>
+<li>ubuntu下是使用Terminator和Guake，mac下使用iTerm2，安装后自行配置终端颜色，字体，透明度，快捷键<figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">sudo apt-get <span class="keyword">install</span> terminator</div><div class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> guake</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="4-Consolas字体添加"><a href="#4-Consolas字体添加" class="headerlink" title="4.Consolas字体添加"></a>4.Consolas字体添加</h1><ul>
+<li>添加consolas字体，修改终端Terminator和Guake字体，选择consolas字体，退出重新打开终端即可以生效</li>
+<li>下载：<a href="http://pan.baidu.com/s/1pLlCY5l" target="_blank" rel="external">http://pan.baidu.com/s/1pLlCY5l</a><figure class="highlight dts"><table><tr><td class="code"><pre><div class="line">sudo mkdir <span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/fonts/</span>winfonts</div><div class="line">sudo cp consola.ttf <span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/fonts/</span>winfonts/</div><div class="line">cd <span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/fonts/</span>winfonts/</div><div class="line">sudo mkfontscale    <span class="meta"># 创建字体的fonts.scale文件，它用来控制字体旋转缩放</span></div><div class="line">sudo mkfontdir      <span class="meta"># 创建字体的fonts.dir文件，它用来控制字体粗斜体产生</span></div><div class="line">sudo fc-cache -fv   <span class="meta"># 建立字体缓存信息，也就是让系统认识认识新字体</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="5-Awesome桌面环境安装"><a href="#5-Awesome桌面环境安装" class="headerlink" title="5.Awesome桌面环境安装"></a>5.Awesome桌面环境安装</h1><ul>
+<li><p>awesome是一款平铺式窗口管理器，将所有打开的窗口设置成各种平铺方式，让它们之间无间隙的平铺于桌面上。awesome可以全部使用键盘来操作窗口。安装完后，注销用户，然后在登录时选择awesome即可。</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><div class="line">sudo apt-get install awesome awesome-extra</div><div class="line">cp <span class="regexp">/etc/</span>xdg<span class="regexp">/awesome/</span>rc.lua ~<span class="regexp">/.config/</span>awesome</div></pre></td></tr></table></figure>
+</li>
+<li><p>Gnome Do能根据用户键入的内容进行自动匹配，从而快速打开系统中已有的程序、文件、书签等</p>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line">sudo apt-<span class="keyword">get</span> install gnome-<span class="keyword">do</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="6-使用VirtualBox安装虚拟环境windows"><a href="#6-使用VirtualBox安装虚拟环境windows" class="headerlink" title="6.使用VirtualBox安装虚拟环境windows"></a>6.使用VirtualBox安装虚拟环境windows</h1><ul>
+<li>在ubuntu安装虚拟机windows，装一些windows常用的工具，抓包工具feddle，聊天工具qq</li>
+<li>网络使用桥接模式，使用增强功能，传输文件使用共享文件夹</li>
+<li><a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank" rel="external">https://www.virtualbox.org/wiki/Linux_Downloads</a><figure class="highlight x86asm"><table><tr><td class="code"><pre><div class="line">wget http://download.virtualbox.org/virtualbox/<span class="number">5.1</span><span class="meta">.18</span>/virtualbox-<span class="number">5.1_5</span><span class="meta">.1</span><span class="meta">.18</span>-<span class="number">114002</span>~Ubuntu~trusty_amd64.deb</div><div class="line">sudo dpkg -i virtualbox-<span class="number">5.1_5</span><span class="meta">.1</span><span class="meta">.18</span>-<span class="number">114002</span>~Ubuntu~trusty_amd64.deb</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="7-Indicator-SysMonitor桌面安装"><a href="#7-Indicator-SysMonitor桌面安装" class="headerlink" title="7.Indicator-SysMonitor桌面安装"></a>7.Indicator-SysMonitor桌面安装</h1><ul>
+<li>Indicator-SysMonitor 的功能非常简单，但运行良好。</li>
+<li>一旦安装并开始运行，它可以在桌面顶部顶部显示CPU、内存和网络使用情况<figure class="highlight smali"><table><tr><td class="code"><pre><div class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:fossfreedom/indicator-sysmonitor</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install indicator-sysmonitor</div></pre></td></tr></table></figure>
+</li>
 </ul>
 
           

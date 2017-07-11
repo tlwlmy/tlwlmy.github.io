@@ -57,22 +57,16 @@
 
 
 
-<meta name="description" content="1.根据显卡型号下载驱动
-显卡型号：Nvidia GeForce GTX 750 ( 2 GB / 技嘉 )
-Nvidia官方显卡下载地址（http://www.geforce.cn/drivers)，选择对应的显卡型号下载，由于点击同意并下载，是跳到链接文件，需要采用wget方式下载，如下wget http://cn.download.nvidia.com/XFree86/Linux-x86_6">
+<meta name="description" content="1.根据显卡型号下载驱动 显卡型号：Nvidia GeForce GTX 750 ( 2 GB / 技嘉 ) Nvidia官方显卡下载地址（http://www.geforce.cn/drivers)，选择对应的显卡型号下载，由于点击同意并下载，是跳到链接文件，需要采用wget方式下载，如下wget http://cn.download.nvidia.com/XFree86/Linux-x86_6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu14.04系统Nvidia显卡安装">
 <meta property="og:url" content="http://www.tlwlmy.com/2016/04/02/desptop_deployment/desptop_deployment_graphics/index.html">
-<meta property="og:site_name" content="tlwlmy'blog">
-<meta property="og:description" content="1.根据显卡型号下载驱动
-显卡型号：Nvidia GeForce GTX 750 ( 2 GB / 技嘉 )
-Nvidia官方显卡下载地址（http://www.geforce.cn/drivers)，选择对应的显卡型号下载，由于点击同意并下载，是跳到链接文件，需要采用wget方式下载，如下wget http://cn.download.nvidia.com/XFree86/Linux-x86_6">
+<meta property="og:site_name" content="tlwlmy&#39;blog">
+<meta property="og:description" content="1.根据显卡型号下载驱动 显卡型号：Nvidia GeForce GTX 750 ( 2 GB / 技嘉 ) Nvidia官方显卡下载地址（http://www.geforce.cn/drivers)，选择对应的显卡型号下载，由于点击同意并下载，是跳到链接文件，需要采用wget方式下载，如下wget http://cn.download.nvidia.com/XFree86/Linux-x86_6">
 <meta property="og:updated_time" content="2016-04-02T11:56:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu14.04系统Nvidia显卡安装">
-<meta name="twitter:description" content="1.根据显卡型号下载驱动
-显卡型号：Nvidia GeForce GTX 750 ( 2 GB / 技嘉 )
-Nvidia官方显卡下载地址（http://www.geforce.cn/drivers)，选择对应的显卡型号下载，由于点击同意并下载，是跳到链接文件，需要采用wget方式下载，如下wget http://cn.download.nvidia.com/XFree86/Linux-x86_6">
+<meta name="twitter:description" content="1.根据显卡型号下载驱动 显卡型号：Nvidia GeForce GTX 750 ( 2 GB / 技嘉 ) Nvidia官方显卡下载地址（http://www.geforce.cn/drivers)，选择对应的显卡型号下载，由于点击同意并下载，是跳到链接文件，需要采用wget方式下载，如下wget http://cn.download.nvidia.com/XFree86/Linux-x86_6">
 
 
 
@@ -294,37 +288,37 @@ Nvidia官方显卡下载地址（http://www.geforce.cn/drivers)，选择对应�
       
 
       
-        <h3 id="1-根据显卡型号下载驱动">1.根据显卡型号下载驱动</h3><ul>
+        <h3 id="1-根据显卡型号下载驱动"><a href="#1-根据显卡型号下载驱动" class="headerlink" title="1.根据显卡型号下载驱动"></a>1.根据显卡型号下载驱动</h3><ul>
 <li>显卡型号：Nvidia GeForce GTX 750 ( 2 GB / 技嘉 )</li>
-<li>Nvidia官方显卡下载地址（<a href="http://www.geforce.cn/drivers)，选择对应的显卡型号下载，由于点击同意并下载，是跳到链接文件，需要采用wget方式下载，如下" target="_blank" rel="external">http://www.geforce.cn/drivers)，选择对应的显卡型号下载，由于点击同意并下载，是跳到链接文件，需要采用wget方式下载，如下</a><figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">wget http://cn.download.nvidia.com/XFree86/Linux-x<span class="number">86_64/361</span>.42/NVIDIA-Linux-x<span class="number">86_64-361</span>.42.run</span><br></pre></td></tr></table></figure>
+<li>Nvidia官方显卡下载地址（<a href="http://www.geforce.cn/drivers)，选择对应的显卡型号下载，由于点击同意并下载，是跳到链接文件，需要采用wget方式下载，如下" target="_blank" rel="external">http://www.geforce.cn/drivers)，选择对应的显卡型号下载，由于点击同意并下载，是跳到链接文件，需要采用wget方式下载，如下</a><figure class="highlight awk"><table><tr><td class="code"><pre><div class="line">wget http:<span class="regexp">//</span>cn.download.nvidia.com<span class="regexp">/XFree86/</span>Linux-x86_64<span class="regexp">/361.42/</span>NVIDIA-Linux-x86_64-<span class="number">361.42</span>.run</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="2-卸载Nvidia显卡，屏蔽其他显卡">2.卸载Nvidia显卡，屏蔽其他显卡</h3><ul>
+<h3 id="2-卸载Nvidia显卡，屏蔽其他显卡"><a href="#2-卸载Nvidia显卡，屏蔽其他显卡" class="headerlink" title="2.卸载Nvidia显卡，屏蔽其他显卡"></a>2.卸载Nvidia显卡，屏蔽其他显卡</h3><ul>
 <li><p>卸载显卡</p>
-<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> remove <span class="comment">--purge nvidia-*</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><div class="line">sudo apt-<span class="keyword">get</span> remove <span class="comment">--purge nvidia-*</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>将其他显卡加入黑名单列表，编辑/etc/modprobe.d/blacklist.conf文件，添加</p>
-<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">blacklist </span>vga16fb </span><br><span class="line"><span class="keyword">blacklist </span>nouveau</span><br><span class="line"><span class="keyword">blacklist </span>rivafb</span><br><span class="line"><span class="keyword">blacklist </span>nvidiafb</span><br><span class="line"><span class="keyword">blacklist </span>rivatv</span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><div class="line"><span class="keyword">blacklist </span>vga16fb </div><div class="line"><span class="keyword">blacklist </span>nouveau</div><div class="line"><span class="keyword">blacklist </span>rivafb</div><div class="line"><span class="keyword">blacklist </span>nvidiafb</div><div class="line"><span class="keyword">blacklist </span>rivatv</div></pre></td></tr></table></figure>
 </li>
 <li><p>保存文件，执行命令使黑名单列表生效</p>
-<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">sudo <span class="keyword">update</span>-initramfs -<span class="keyword">u</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><div class="line"><span class="attribute">sudo update-initramfs -u</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="3-显卡安装">3.显卡安装</h3><ul>
+<h3 id="3-显卡安装"><a href="#3-显卡安装" class="headerlink" title="3.显卡安装"></a>3.显卡安装</h3><ul>
 <li><p>进入系统，ctrl+alt+f1进入tty， 关闭lightdm</p>
-<figure class="highlight fortran"><table><tr><td class="code"><pre><span class="line">sudo service lightdm <span class="keyword">stop</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line">sudo service lightdm <span class="built_in">stop</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>安装显卡,安装期间会遇到报错the distribution-provided pre-install script failed!不必理会，继续安装</p>
-<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">chmod +x NVIDIA-Linux-*-.<span class="command">run</span></span><br><span class="line">./NVIDIA-Linux-*-.<span class="command">run</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><div class="line">chmod +x NVIDIA-Linux-*-<span class="string">.run</span></div><div class="line"><span class="string">./NVIDIA-Linux-</span>*-<span class="string">.run</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>重新启动lightdm</p>
-<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">sudo service lightdm <span class="built_in">start</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><div class="line">sudo service lightdm <span class="literal">start</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>重启电脑</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="title">sudo</span> reboot</span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><div class="line"><span class="attribute">sudo reboot</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="4-总结">4.总结</h3><ul>
+<h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h3><ul>
 <li>每次安装显卡都是一个蛋疼的过程，第一次安装成功显卡，都是重装系统十多次才搞定的。</li>
 <li>从ubuntu15.04装到14.04，用装15.04安装，直接花屏，进入连tty都是花屏，根本看不起输入的命令，连登陆用户都不可以，换了14.04后，有点花，但是还是可以看的清。</li>
 <li>有时候安装过程会出现无线网卡驱动没安装成功，只能用网线链接上网，sudo apt-get update一下才能用无线连上网。</li>
@@ -348,16 +342,16 @@ Nvidia官方显卡下载地址（http://www.geforce.cn/drivers)，选择对应�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/24/desptop_deployment/desptop_deployment_coding/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2016/04/02/desptop_deployment/desptop_deployment_basic_conf/" rel="next" title="ubuntu14.04系统基本配置">
+                <i class="fa fa-chevron-left"></i> ubuntu14.04系统基本配置
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/02/desptop_deployment/desptop_deployment_basic_conf/" rel="prev" title="ubuntu14.04系统基本配置">
-                ubuntu14.04系统基本配置 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/15/flask/flask_url_for/" rel="prev" title="flask的url_for使用">
+                flask的url_for使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

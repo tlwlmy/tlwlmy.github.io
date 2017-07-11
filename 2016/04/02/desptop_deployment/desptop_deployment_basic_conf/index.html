@@ -57,19 +57,16 @@
 
 
 
-<meta name="description" content="1.浏览器
-使用ubuntu默认库安装Chrome和Pepper Flash Playersudo apt-get updatesudo apt-get install chromium-browsersudo add-apt-repository ppa:skunk/pepper-flashsudo apt-get updatesudo apt-get install pepflashplugi">
+<meta name="description" content="1.浏览器 使用ubuntu默认库安装Chrome和Pepper Flash Playersudo apt-get updatesudo apt-get install chromium-browsersudo add-apt-repository ppa:skunk/pepper-flashsudo apt-get updatesudo apt-get install pepflashplugi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu14.04系统基本配置">
 <meta property="og:url" content="http://www.tlwlmy.com/2016/04/02/desptop_deployment/desptop_deployment_basic_conf/index.html">
-<meta property="og:site_name" content="tlwlmy'blog">
-<meta property="og:description" content="1.浏览器
-使用ubuntu默认库安装Chrome和Pepper Flash Playersudo apt-get updatesudo apt-get install chromium-browsersudo add-apt-repository ppa:skunk/pepper-flashsudo apt-get updatesudo apt-get install pepflashplugi">
-<meta property="og:updated_time" content="2017-03-21T06:51:55.000Z">
+<meta property="og:site_name" content="tlwlmy&#39;blog">
+<meta property="og:description" content="1.浏览器 使用ubuntu默认库安装Chrome和Pepper Flash Playersudo apt-get updatesudo apt-get install chromium-browsersudo add-apt-repository ppa:skunk/pepper-flashsudo apt-get updatesudo apt-get install pepflashplugi">
+<meta property="og:updated_time" content="2017-05-09T06:47:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu14.04系统基本配置">
-<meta name="twitter:description" content="1.浏览器
-使用ubuntu默认库安装Chrome和Pepper Flash Playersudo apt-get updatesudo apt-get install chromium-browsersudo add-apt-repository ppa:skunk/pepper-flashsudo apt-get updatesudo apt-get install pepflashplugi">
+<meta name="twitter:description" content="1.浏览器 使用ubuntu默认库安装Chrome和Pepper Flash Playersudo apt-get updatesudo apt-get install chromium-browsersudo add-apt-repository ppa:skunk/pepper-flashsudo apt-get updatesudo apt-get install pepflashplugi">
 
 
 
@@ -291,35 +288,41 @@
       
 
       
-        <h1 id="1-浏览器">1.浏览器</h1><ul>
-<li>使用ubuntu默认库安装Chrome和Pepper Flash Player<figure class="highlight smali"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install chromium-browser</span><br><span class="line">sudo<span class="instruction"> add-apt-repository </span>ppa:skunk/pepper-flash</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install pepflashplugin-installer</span><br><span class="line">sudo update-pepperflashplugin-nonfree --install</span><br></pre></td></tr></table></figure>
+        <h1 id="1-浏览器"><a href="#1-浏览器" class="headerlink" title="1.浏览器"></a>1.浏览器</h1><ul>
+<li>使用ubuntu默认库安装Chrome和Pepper Flash Player<figure class="highlight smali"><table><tr><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install chromium-browser</div><div class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:skunk/pepper-flash</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install pepflashplugin-installer</div><div class="line">sudo update-pepperflashplugin-nonfree --install</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1 id="2-输入法">2.输入法</h1><ul>
-<li>搜狗输入法，选择对应的操作系统位数下载，点击deb包安装<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">http:</span><span class="comment">//pinyin.sogou.com/linux/?r=pinyin</span></span><br></pre></td></tr></table></figure>
+<h1 id="2-输入法"><a href="#2-输入法" class="headerlink" title="2.输入法"></a>2.输入法</h1><ul>
+<li>搜狗输入法，选择对应的操作系统位数下载，点击deb包安装<figure class="highlight awk"><table><tr><td class="code"><pre><div class="line">http:<span class="regexp">//</span>pinyin.sogou.com<span class="regexp">/linux/</span>?r=pinyin</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1 id="3-终端">3.终端</h1><ul>
+<h1 id="3-终端"><a href="#3-终端" class="headerlink" title="3.终端"></a>3.终端</h1><ul>
 <li><a href="http://blog.jobbole.com/59165/" target="_blank" rel="external">linux终端选择参考</a></li>
-<li>ubuntu下是使用Terminator和Guake，mac下使用iTerm2，安装后自行配置终端颜色，字体，透明度，快捷键<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">apt-get <span class="operator"><span class="keyword">install</span> terminator</span><br><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> guake</span></span><br></pre></td></tr></table></figure>
+<li>ubuntu下是使用Terminator和Guake，mac下使用iTerm2，安装后自行配置终端颜色，字体，透明度，快捷键<figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">sudo apt-get <span class="keyword">install</span> terminator</div><div class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> guake</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1 id="4-Consolas字体添加">4.Consolas字体添加</h1><ul>
-<li>添加consolas字体，修改终端Terminator和Guake字体，选择consolas字体，退出重新打开终端即可以生效<figure class="highlight perl"><table><tr><td class="code"><pre><span class="line">wget http:<span class="regexp">//pan</span>.baidu.com/<span class="regexp">s/1pLlCY5l</span><br><span class="line">mkdir /usr/share</span><span class="regexp">/fonts/winfonts</span></span><br><span class="line">sudo cp consolas /usr/share/fonts/winfonts/</span><br><span class="line">cd /usr/share/fonts/winfonts/</span><br><span class="line">sudo mkfontscale    <span class="comment"># 创建字体的fonts.scale文件，它用来控制字体旋转缩放</span></span><br><span class="line">sudo mkfontdir      <span class="comment"># 创建字体的fonts.dir文件，它用来控制字体粗斜体产生</span></span><br><span class="line">sudo fc-cache -fv   <span class="comment"># 建立字体缓存信息，也就是让系统认识认识新字体</span></span><br></pre></td></tr></table></figure>
+<h1 id="4-Consolas字体添加"><a href="#4-Consolas字体添加" class="headerlink" title="4.Consolas字体添加"></a>4.Consolas字体添加</h1><ul>
+<li>添加consolas字体，修改终端Terminator和Guake字体，选择consolas字体，退出重新打开终端即可以生效</li>
+<li>下载：<a href="http://pan.baidu.com/s/1pLlCY5l" target="_blank" rel="external">http://pan.baidu.com/s/1pLlCY5l</a><figure class="highlight dts"><table><tr><td class="code"><pre><div class="line">sudo mkdir <span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/fonts/</span>winfonts</div><div class="line">sudo cp consola.ttf <span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/fonts/</span>winfonts/</div><div class="line">cd <span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/fonts/</span>winfonts/</div><div class="line">sudo mkfontscale    <span class="meta"># 创建字体的fonts.scale文件，它用来控制字体旋转缩放</span></div><div class="line">sudo mkfontdir      <span class="meta"># 创建字体的fonts.dir文件，它用来控制字体粗斜体产生</span></div><div class="line">sudo fc-cache -fv   <span class="meta"># 建立字体缓存信息，也就是让系统认识认识新字体</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1 id="5-Awesome桌面环境安装">5.Awesome桌面环境安装</h1><ul>
+<h1 id="5-Awesome桌面环境安装"><a href="#5-Awesome桌面环境安装" class="headerlink" title="5.Awesome桌面环境安装"></a>5.Awesome桌面环境安装</h1><ul>
 <li><p>awesome是一款平铺式窗口管理器，将所有打开的窗口设置成各种平铺方式，让它们之间无间隙的平铺于桌面上。awesome可以全部使用键盘来操作窗口。安装完后，注销用户，然后在登录时选择awesome即可。</p>
-<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">sudo apt-get install awesome awesome-extra</span><br><span class="line">cp <span class="regexp">/etc/</span>xdg<span class="regexp">/awesome/</span>rc.lua ~<span class="regexp">/.config/</span>awesome</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="code"><pre><div class="line">sudo apt-get install awesome awesome-extra</div><div class="line">cp <span class="regexp">/etc/</span>xdg<span class="regexp">/awesome/</span>rc.lua ~<span class="regexp">/.config/</span>awesome</div></pre></td></tr></table></figure>
 </li>
 <li><p>Gnome Do能根据用户键入的内容进行自动匹配，从而快速打开系统中已有的程序、文件、书签等</p>
-<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install gnome-<span class="keyword">do</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line">sudo apt-<span class="keyword">get</span> install gnome-<span class="keyword">do</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1 id="6-使用VirtualBox安装虚拟环境windows">6.使用VirtualBox安装虚拟环境windows</h1><ul>
+<h1 id="6-使用VirtualBox安装虚拟环境windows"><a href="#6-使用VirtualBox安装虚拟环境windows" class="headerlink" title="6.使用VirtualBox安装虚拟环境windows"></a>6.使用VirtualBox安装虚拟环境windows</h1><ul>
 <li>在ubuntu安装虚拟机windows，装一些windows常用的工具，抓包工具feddle，聊天工具qq</li>
 <li>网络使用桥接模式，使用增强功能，传输文件使用共享文件夹</li>
-<li><a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank" rel="external">https://www.virtualbox.org/wiki/Linux_Downloads</a><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">wget http:<span class="comment">//download.virtualbox.org/virtualbox/5.1.18/virtualbox-5.1_5.1.18-114002~Ubuntu~trusty_amd64.deb</span></span><br><span class="line">sudo dpkg -i virtualbox-<span class="number">5.1</span>_5<span class="number">.1</span><span class="number">.18</span>-<span class="number">114002</span>~Ubuntu~trusty_amd64.deb</span><br></pre></td></tr></table></figure>
+<li><a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank" rel="external">https://www.virtualbox.org/wiki/Linux_Downloads</a><figure class="highlight x86asm"><table><tr><td class="code"><pre><div class="line">wget http://download.virtualbox.org/virtualbox/<span class="number">5.1</span><span class="meta">.18</span>/virtualbox-<span class="number">5.1_5</span><span class="meta">.1</span><span class="meta">.18</span>-<span class="number">114002</span>~Ubuntu~trusty_amd64.deb</div><div class="line">sudo dpkg -i virtualbox-<span class="number">5.1_5</span><span class="meta">.1</span><span class="meta">.18</span>-<span class="number">114002</span>~Ubuntu~trusty_amd64.deb</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="7-Indicator-SysMonitor桌面安装"><a href="#7-Indicator-SysMonitor桌面安装" class="headerlink" title="7.Indicator-SysMonitor桌面安装"></a>7.Indicator-SysMonitor桌面安装</h1><ul>
+<li>Indicator-SysMonitor 的功能非常简单，但运行良好。</li>
+<li>一旦安装并开始运行，它可以在桌面顶部顶部显示CPU、内存和网络使用情况<figure class="highlight smali"><table><tr><td class="code"><pre><div class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:fossfreedom/indicator-sysmonitor</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install indicator-sysmonitor</div></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -339,16 +342,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/02/desptop_deployment/desptop_deployment_graphics/" rel="next" title="ubuntu14.04系统Nvidia显卡安装">
-                <i class="fa fa-chevron-left"></i> ubuntu14.04系统Nvidia显卡安装
+              <a href="/2016/03/24/desptop_deployment/desptop_deployment_coding/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/15/flask/flask_url_for/" rel="prev" title="flask的url_for使用">
-                flask的url_for使用 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/02/desptop_deployment/desptop_deployment_graphics/" rel="prev" title="ubuntu14.04系统Nvidia显卡安装">
+                ubuntu14.04系统Nvidia显卡安装 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -505,7 +508,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-浏览器"><span class="nav-number">1.</span> <span class="nav-text">1.浏览器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-输入法"><span class="nav-number">2.</span> <span class="nav-text">2.输入法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-终端"><span class="nav-number">3.</span> <span class="nav-text">3.终端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Consolas字体添加"><span class="nav-number">4.</span> <span class="nav-text">4.Consolas字体添加</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-Awesome桌面环境安装"><span class="nav-number">5.</span> <span class="nav-text">5.Awesome桌面环境安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-使用VirtualBox安装虚拟环境windows"><span class="nav-number">6.</span> <span class="nav-text">6.使用VirtualBox安装虚拟环境windows</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-浏览器"><span class="nav-number">1.</span> <span class="nav-text">1.浏览器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-输入法"><span class="nav-number">2.</span> <span class="nav-text">2.输入法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-终端"><span class="nav-number">3.</span> <span class="nav-text">3.终端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Consolas字体添加"><span class="nav-number">4.</span> <span class="nav-text">4.Consolas字体添加</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-Awesome桌面环境安装"><span class="nav-number">5.</span> <span class="nav-text">5.Awesome桌面环境安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-使用VirtualBox安装虚拟环境windows"><span class="nav-number">6.</span> <span class="nav-text">6.使用VirtualBox安装虚拟环境windows</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-Indicator-SysMonitor桌面安装"><span class="nav-number">7.</span> <span class="nav-text">7.Indicator-SysMonitor桌面安装</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

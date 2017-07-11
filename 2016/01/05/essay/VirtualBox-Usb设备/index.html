@@ -57,22 +57,16 @@
 
 
 
-<meta name="description" content="Ubuntu 14.04 VirtualBox虚拟机win7支持Usb设备需要从官网下载Oracle VM VirtualBox Extension Pac扩展插件需要安装对应的版本，不然可能会报错,查看VirtualBox 版本dpkg -l | grep virtualbox
-下载完成后点击安装，在USB设置添加USB筛选器查询自己当前用户whoami
-将当前用户加入vboxusers组use">
+<meta name="description" content="Ubuntu 14.04 VirtualBox虚拟机win7支持Usb设备需要从官网下载Oracle VM VirtualBox Extension Pac扩展插件需要安装对应的版本，不然可能会报错,查看VirtualBox 版本dpkg -l | grep virtualbox 下载完成后点击安装，在USB设置添加USB筛选器查询自己当前用户whoami 将当前用户加入vboxusers组use">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VirtualBox Usb设备">
 <meta property="og:url" content="http://www.tlwlmy.com/2016/01/05/essay/VirtualBox-Usb设备/index.html">
-<meta property="og:site_name" content="tlwlmy'blog">
-<meta property="og:description" content="Ubuntu 14.04 VirtualBox虚拟机win7支持Usb设备需要从官网下载Oracle VM VirtualBox Extension Pac扩展插件需要安装对应的版本，不然可能会报错,查看VirtualBox 版本dpkg -l | grep virtualbox
-下载完成后点击安装，在USB设置添加USB筛选器查询自己当前用户whoami
-将当前用户加入vboxusers组use">
+<meta property="og:site_name" content="tlwlmy&#39;blog">
+<meta property="og:description" content="Ubuntu 14.04 VirtualBox虚拟机win7支持Usb设备需要从官网下载Oracle VM VirtualBox Extension Pac扩展插件需要安装对应的版本，不然可能会报错,查看VirtualBox 版本dpkg -l | grep virtualbox 下载完成后点击安装，在USB设置添加USB筛选器查询自己当前用户whoami 将当前用户加入vboxusers组use">
 <meta property="og:updated_time" content="2016-03-02T09:53:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VirtualBox Usb设备">
-<meta name="twitter:description" content="Ubuntu 14.04 VirtualBox虚拟机win7支持Usb设备需要从官网下载Oracle VM VirtualBox Extension Pac扩展插件需要安装对应的版本，不然可能会报错,查看VirtualBox 版本dpkg -l | grep virtualbox
-下载完成后点击安装，在USB设置添加USB筛选器查询自己当前用户whoami
-将当前用户加入vboxusers组use">
+<meta name="twitter:description" content="Ubuntu 14.04 VirtualBox虚拟机win7支持Usb设备需要从官网下载Oracle VM VirtualBox Extension Pac扩展插件需要安装对应的版本，不然可能会报错,查看VirtualBox 版本dpkg -l | grep virtualbox 下载完成后点击安装，在USB设置添加USB筛选器查询自己当前用户whoami 将当前用户加入vboxusers组use">
 
 
 
@@ -294,11 +288,11 @@
       
 
       
-        <h3 id="Ubuntu_14-04_VirtualBox虚拟机win7支持Usb设备">Ubuntu 14.04 VirtualBox虚拟机win7支持Usb设备</h3><p>需要从<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="external">官网</a>下载Oracle VM VirtualBox Extension Pac<br>扩展插件需要安装对应的版本，不然可能会报错,查看VirtualBox 版本<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">dpkg -l | grep virtualbox</span><br></pre></td></tr></table></figure></p>
-<p>下载完成后点击安装，在USB设置添加USB筛选器<br>查询自己当前用户<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">whoami</span><br></pre></td></tr></table></figure></p>
-<p>将当前用户加入vboxusers组<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">usermod -a -G vboxusers $(whoami)</span><br></pre></td></tr></table></figure></p>
+        <h3 id="Ubuntu-14-04-VirtualBox虚拟机win7支持Usb设备"><a href="#Ubuntu-14-04-VirtualBox虚拟机win7支持Usb设备" class="headerlink" title="Ubuntu 14.04 VirtualBox虚拟机win7支持Usb设备"></a>Ubuntu 14.04 VirtualBox虚拟机win7支持Usb设备</h3><p>需要从<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="external">官网</a>下载Oracle VM VirtualBox Extension Pac<br>扩展插件需要安装对应的版本，不然可能会报错,查看VirtualBox 版本<br><figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">dpkg -l | grep virtualbox</div></pre></td></tr></table></figure></p>
+<p>下载完成后点击安装，在USB设置添加USB筛选器<br>查询自己当前用户<br><figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">whoami</div></pre></td></tr></table></figure></p>
+<p>将当前用户加入vboxusers组<br><figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">usermod -a -G vboxusers $(whoami)</div></pre></td></tr></table></figure></p>
 <p>重启Ubuntu系统，再启动虚拟机win7</p>
-<h3 id="参考">参考</h3><ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="http://www.cnblogs.com/wanqieddy/archive/2012/03/06/2382408.html" target="_blank" rel="external">http://www.cnblogs.com/wanqieddy/archive/2012/03/06/2382408.html</a></li>
 <li><a href="http://www.cnblogs.com/westfly/archive/2013/04/19/3031330.html" target="_blank" rel="external">http://www.cnblogs.com/westfly/archive/2013/04/19/3031330.html</a></li>
 </ul>
@@ -485,7 +479,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu_14-04_VirtualBox虚拟机win7支持Usb设备"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu 14.04 VirtualBox虚拟机win7支持Usb设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu-14-04-VirtualBox虚拟机win7支持Usb设备"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu 14.04 VirtualBox虚拟机win7支持Usb设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

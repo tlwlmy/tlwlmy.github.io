@@ -57,22 +57,16 @@
 
 
 
-<meta name="description" content="blueprint和url_for- 组织module的一个很好的方式, 通常我们会为不同的 Blueprint 设置不同的url prefix.
-- 在设置了url prefix后, html 模板中与这个blueprint相关的link 字符串, 都需要加上url prefix, 否则路由地址就不对了.
-- 当然这样的写法其实很是很糟糕的, hard code 的url prefix一多, 哪">
+<meta name="description" content="blueprint和url_for- 组织module的一个很好的方式, 通常我们会为不同的 Blueprint 设置不同的url prefix. - 在设置了url prefix后, html 模板中与这个blueprint相关的link 字符串, 都需要加上url prefix, 否则路由地址就不对了. - 当然这样的写法其实很是很糟糕的, hard code 的url prefix一多, 哪">
 <meta property="og:type" content="article">
 <meta property="og:title" content="flask的url_for使用">
 <meta property="og:url" content="http://www.tlwlmy.com/2016/06/15/flask/flask_url_for/index.html">
-<meta property="og:site_name" content="tlwlmy'blog">
-<meta property="og:description" content="blueprint和url_for- 组织module的一个很好的方式, 通常我们会为不同的 Blueprint 设置不同的url prefix.
-- 在设置了url prefix后, html 模板中与这个blueprint相关的link 字符串, 都需要加上url prefix, 否则路由地址就不对了.
-- 当然这样的写法其实很是很糟糕的, hard code 的url prefix一多, 哪">
+<meta property="og:site_name" content="tlwlmy&#39;blog">
+<meta property="og:description" content="blueprint和url_for- 组织module的一个很好的方式, 通常我们会为不同的 Blueprint 设置不同的url prefix. - 在设置了url prefix后, html 模板中与这个blueprint相关的link 字符串, 都需要加上url prefix, 否则路由地址就不对了. - 当然这样的写法其实很是很糟糕的, hard code 的url prefix一多, 哪">
 <meta property="og:updated_time" content="2016-06-15T09:13:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flask的url_for使用">
-<meta name="twitter:description" content="blueprint和url_for- 组织module的一个很好的方式, 通常我们会为不同的 Blueprint 设置不同的url prefix.
-- 在设置了url prefix后, html 模板中与这个blueprint相关的link 字符串, 都需要加上url prefix, 否则路由地址就不对了.
-- 当然这样的写法其实很是很糟糕的, hard code 的url prefix一多, 哪">
+<meta name="twitter:description" content="blueprint和url_for- 组织module的一个很好的方式, 通常我们会为不同的 Blueprint 设置不同的url prefix. - 在设置了url prefix后, html 模板中与这个blueprint相关的link 字符串, 都需要加上url prefix, 否则路由地址就不对了. - 当然这样的写法其实很是很糟糕的, hard code 的url prefix一多, 哪">
 
 
 
@@ -294,14 +288,14 @@
       
 
       
-        <h3 id="blueprint和url_for">blueprint和url_for</h3><pre><code>- 组织module的一个很好的方式, 通常我们会为不同的 Blueprint 设置不同的url prefix.
-- 在设置了url prefix后, <span class="tag">html</span> 模板中与这个blueprint相关的link 字符串, 都需要加上url prefix, 否则路由地址就不对了.
-- 当然这样的写法其实很是很糟糕的, hard <span class="tag">code</span> 的url prefix一多, 哪一天要调整这个url prefix就麻烦了
-- 最好的作法, 当然不是到处hard <span class="tag">code</span> 链接地址了, 推荐使用<span class="function"><span class="title">url_for</span><span class="params">()</span></span>函数.  
-- 但加了url prefix之后, 使用 <span class="function"><span class="title">url_for</span><span class="params">()</span></span> 函数时, 需要为view函数加一个命名空间, 到底这个命名空间取什么,  结论是 Blueprint的名称, 不是Blueprint对象的名称, 也不是python 模块的名称
-</code></pre><h3 id="url_for使用例子">url_for使用例子</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line">#views.pyapp = Blueprint('user', __name__, url_prefix='/username')  #Blueprint的名称是 user@app.route("/user_info/&lt;username&gt;/&lt;time_id&gt;")def user_info(username, time_id):    return 'a,b,c,d,e'    def redirect_sample():    return redirect(url_for('user.user_info', user_name='tlwlmy', time_id='201406'))    模板上的写法也是一样,    &lt;a href="&#123;&#123; url_for('muser.user_info', report_name='tlwlmy', time_id='201406')&#125;&#125;"&gt;    get_user_info(201406)  &lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="参考文档">参考文档</h3><pre><code>-<span class="ruby"> <span class="symbol">http:</span>/<span class="regexp">/www.cnblogs.com/harrychinese</span><span class="regexp">/p/flask</span>_tips.html
-</span>-<span class="ruby"> <span class="symbol">http:</span>/<span class="regexp">/docs.jinkan.org/docs</span><span class="regexp">/flask/quickstart</span>.html</span>
+        <h3 id="blueprint和url-for"><a href="#blueprint和url-for" class="headerlink" title="blueprint和url_for"></a>blueprint和url_for</h3><pre><code>- 组织module的一个很好的方式, 通常我们会为不同的 Blueprint 设置不同的url prefix.
+- 在设置了url prefix后, html 模板中与这个blueprint相关的link 字符串, 都需要加上url prefix, 否则路由地址就不对了.
+- 当然这样的写法其实很是很糟糕的, hard code 的url prefix一多, 哪一天要调整这个url prefix就麻烦了
+- 最好的作法, 当然不是到处hard code 链接地址了, 推荐使用url_for()函数.  
+- 但加了url prefix之后, 使用 url_for() 函数时, 需要为view函数加一个命名空间, 到底这个命名空间取什么,  结论是 Blueprint的名称, 不是Blueprint对象的名称, 也不是python 模块的名称
+</code></pre><h3 id="url-for使用例子"><a href="#url-for使用例子" class="headerlink" title="url_for使用例子"></a>url_for使用例子</h3><figure class="highlight"><table><tr><td class="code"><pre><div class="line">#views.pyapp = Blueprint('user', __name__, url_prefix='/username')  #Blueprint的名称是 user@app.route("/user_info/&lt;username&gt;/&lt;time_id&gt;")def user_info(username, time_id):    return 'a,b,c,d,e'    def redirect_sample():    return redirect(url_for('user.user_info', user_name='tlwlmy', time_id='201406'))    模板上的写法也是一样,    &lt;a href="&#123;&#123; url_for('muser.user_info', report_name='tlwlmy', time_id='201406')&#125;&#125;"&gt;    get_user_info(201406)  &lt;/a&gt;</div></pre></td></tr></table></figure>
+<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><pre><code>- http://www.cnblogs.com/harrychinese/p/flask_tips.html
+- http://docs.jinkan.org/docs/flask/quickstart.html
 </code></pre>
       
     </div>
@@ -319,8 +313,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/02/desptop_deployment/desptop_deployment_basic_conf/" rel="next" title="ubuntu14.04系统基本配置">
-                <i class="fa fa-chevron-left"></i> ubuntu14.04系统基本配置
+              <a href="/2016/04/02/desptop_deployment/desptop_deployment_graphics/" rel="next" title="ubuntu14.04系统Nvidia显卡安装">
+                <i class="fa fa-chevron-left"></i> ubuntu14.04系统Nvidia显卡安装
               </a>
             
           </div>
@@ -485,7 +479,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#blueprint和url_for"><span class="nav-number">1.</span> <span class="nav-text">blueprint和url_for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#url_for使用例子"><span class="nav-number">2.</span> <span class="nav-text">url_for使用例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文档"><span class="nav-number">3.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#blueprint和url-for"><span class="nav-number">1.</span> <span class="nav-text">blueprint和url_for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#url-for使用例子"><span class="nav-number">2.</span> <span class="nav-text">url_for使用例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文档"><span class="nav-number">3.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
